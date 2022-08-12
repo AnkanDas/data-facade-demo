@@ -1,0 +1,49 @@
+name: "Data_Preparation"
+version: 1.0
+display_name: "Data Preperation for HyperPersonalisation"
+description: "This app contains actions and flows that uses DBT to prepare the final datasets needed for running the Discounting HyperPersonalisation application"
+actions:
+  - unique_name: "last 24 hour app table"
+    display_name: "First class table for app data of new users"
+    action_reference: nine_columns
+    parameters:
+      - param_name: "input_table"
+        df_param_type: table
+        display_name: "input table"
+        description: "select the input table here"
+      - param_name: "dim_column_1"
+        df_param_type: column
+        display_name: "Column 1"
+        description: "select the 1st column here"
+      - param_name: "dim_column_2"
+        df_param_type: column
+        display_name: "Column 2"
+        description: "select the 1st column here"
+      - param_name: "dim_column_3"
+        df_param_type: column
+        display_name: "Column 3"
+        description: "select the 1st column here"
+      - param_name: "dim_column_4"
+        df_param_type: column
+        display_name: "Column 4"
+        description: "select the 1st column here"
+      - param_name: "dim_column_5"
+        df_param_type: column
+        display_name: "Column 5"
+        description: "select the 1st column here"
+      - param_name: "dim_column_6"
+        df_param_type: column
+        display_name: "Column 6"
+        description: "select the 1st column here"
+      - param_name: "dim_column_7"
+        df_param_type: column
+        display_name: "Column 7"
+        description: "select the 1st column here"
+      - param_name: "dim_column_8"
+        df_param_type: column
+        display_name: "Column 8"
+        description: "select the 1st column here"
+      - param_name: "dim_column_9"
+        df_param_type: column
+        display_name: "Column 9"
+        description: "select the 1st column here"
