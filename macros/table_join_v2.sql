@@ -2,6 +2,6 @@
 
 select * from {{table1}}
 inner join {{table1}}
-using {{keycolumn}}
+using ({{keycolumn}})
 
 {% endmacro %}
