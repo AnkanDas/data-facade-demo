@@ -69,3 +69,20 @@ actions:
         df_param_type: column
         display_name: "user_id of CLTV dataset"
         description: "select the user_id column of CLTV dataset here"
+actions:
+  - unique_name: "join tables same key column"
+    display_name: "Join demography data with CLTV data where both have user_id as key"
+    action_reference: table_join_skey
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input demography table"
+        description: "select the demography table here"
+      - param_name: "table2"
+        df_param_type: table
+        display_name: "input CLTV table"
+        description: "select the CLTV table here"
+      - param_name: "keycolumn"
+        df_param_type: column
+        display_name: "user_id of demography and CLTV dataset"
+        description: "select the user_id column of demography and CLTV dataset here"
