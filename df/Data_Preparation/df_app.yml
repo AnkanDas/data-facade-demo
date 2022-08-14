@@ -7,43 +7,43 @@ actions:
     display_name: "First class table for app data of new users"
     action_reference: nine_columns
     parameters:
-      - param_name: "input_table"
+      - param_name: "table1"
         df_param_type: table
         display_name: "input table"
         description: "select the input table here"
-      - param_name: "dim_column_1"
+      - param_name: "column_1"
         df_param_type: column
         display_name: "Column 1"
         description: "select the 1st column here"
-      - param_name: "dim_column_2"
+      - param_name: "column_2"
         df_param_type: column
         display_name: "Column 2"
         description: "select the 2nd column here"
-      - param_name: "dim_column_3"
+      - param_name: "column_3"
         df_param_type: column
         display_name: "Column 3"
         description: "select the 3rd column here"
-      - param_name: "dim_column_4"
+      - param_name: "column_4"
         df_param_type: column
         display_name: "Column 4"
         description: "select the 4th column here"
-      - param_name: "dim_column_5"
+      - param_name: "column_5"
         df_param_type: column
         display_name: "Column 5"
         description: "select the 5th column here"
-      - param_name: "dim_column_6"
+      - param_name: "column_6"
         df_param_type: column
         display_name: "Column 6"
         description: "select the 6th column here"
-      - param_name: "dim_column_7"
+      - param_name: "column_7"
         df_param_type: column
         display_name: "Column 7"
         description: "select the 7th column here"
-      - param_name: "dim_column_8"
+      - param_name: "column_8"
         df_param_type: column
         display_name: "Column 8"
         description: "select the 8th column here"
-      - param_name: "dim_column_9"
+      - param_name: "column_9"
         df_param_type: column
         display_name: "Column 9"
         description: "select the 9th column here"
