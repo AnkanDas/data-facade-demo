@@ -47,8 +47,6 @@ actions:
         df_param_type: column
         display_name: "Column 9"
         description: "select the 9th column here"
-
-actions:
   - unique_name: "join tables"
     display_name: "Join demography data with CLTV data"
     action_reference: table_join
@@ -69,7 +67,6 @@ actions:
         df_param_type: column
         display_name: "user_id of CLTV dataset"
         description: "select the user_id column of CLTV dataset here"
-actions:
   - unique_name: "join tables same key column"
     display_name: "Join demography data with CLTV data where both have user_id as key"
     action_reference: table_join_skey
