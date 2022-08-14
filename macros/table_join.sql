@@ -1,4 +1,4 @@
-{% macro three_columns(table1, table2, keycolumn1, keycolumn2) %}
+{% macro table_join(table1, table2, keycolumn1, keycolumn2) %}
 
 select * from {{table1}}
 inner join {{table1}}
