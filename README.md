@@ -3,8 +3,8 @@ Welcome to your new dbt project!
 ### Using the starter project
 
 Try running the following commands:
-- dbt run
-- dbt test
+- run_dbt.py run
+- run_dbt.py test
 
 
 ### Resources:
