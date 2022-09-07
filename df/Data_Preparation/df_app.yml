@@ -48,7 +48,7 @@ actions:
         display_name: "input source table"
         description: "select the table for which ageing to be calculated"
       - param_name: "new_column"
-        df_param_type: string
+        df_param_type: column
         display_name: "Enter name"
         description: "Enter the name of the ageing column"
       - param_name: "column1"
