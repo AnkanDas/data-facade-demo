@@ -2,6 +2,7 @@
 
 ALTER TABLE {{table}}
 
-ADD COLUMN {{new_column}} AS DATEDIFF(minute,{{column1}},{{column2}})
+ADD COLUMN {{new_column}} 
+date_time MATERIALIZED DATEDIFF(hour,{{column1}},{{column2}})
 
 {% endmacro %}
