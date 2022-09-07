@@ -39,3 +39,23 @@ actions:
         df_param_type: column
         display_name: "common primary key of the datasets"
         description: "select the common primary key of the datasets here"
+  - unique_name: "date_difference"
+    display_name: "Ageing between two dates"
+    action_reference: calcolumn
+    parameters:
+      - param_name: "table"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which ageing to be calculated"
+      - param_name: "new_column"
+        df_param_type: string
+        display_name: "Enter name"
+        description: "Enter the name of the ageing column"
+      - param_name: "column1"
+        df_param_type: column
+        display_name: "First date time column"
+        description: "select the start date time column"
+      - param_name: "column2"
+        df_param_type: column
+        display_name: "Second date time column"
+        description: "select the end date time column"
