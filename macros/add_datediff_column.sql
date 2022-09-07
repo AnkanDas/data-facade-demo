@@ -2,6 +2,6 @@
 
 ALTER TABLE {{table}}
 
-ADD {{new_column}} AS DATEDIFF(minute,{{column1}},{{column2}})
+ADD COLUMN {{new_column}} AS DATEDIFF(minute,{{column1}},{{column2}})
 
 {% endmacro %}
