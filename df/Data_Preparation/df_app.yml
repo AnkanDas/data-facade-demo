@@ -1,41 +1,41 @@
 name: "Data_Preparation"
 version: 1.1
-display_name: "Data Preperation for HyperPersonalisation"
-description: "This app contains actions and flows that uses DBT to prepare the final datasets needed for running the Discounting HyperPersonalisation application"
+display_name: "Data Model Preperation"
+description: "This app contains actions and flows that uses DBT to prepare the final datasets needed for running other application"
 actions:
-  - unique_name: "join tables"
-    display_name: "Join demography data with CLTV data"
+  - unique_name: "join tables different key columns"
+    display_name: "Join two tables with different name formats of primary keys"
     action_reference: table_join
     parameters:
       - param_name: "table1"
         df_param_type: table
-        display_name: "input demography table"
-        description: "select the demography table here"
+        display_name: "input first table"
+        description: "select the first table here"
       - param_name: "table2"
         df_param_type: table
-        display_name: "input CLTV table"
-        description: "select the CLTV table here"
+        display_name: "input second table"
+        description: "select the second table here"
       - param_name: "keycolumn1"
         df_param_type: column
-        display_name: "user_id of demography dataset"
-        description: "select the user_id column of demography dataset here"
+        display_name: "primary key of first dataset"
+        description: "select the primary key of first dataset here"
       - param_name: "keycolumn2"
         df_param_type: column
-        display_name: "user_id of CLTV dataset"
-        description: "select the user_id column of CLTV dataset here"
+        display_name: "primary key of second dataset"
+        description: "select the uprimary key of second dataset here"
   - unique_name: "join tables same key column"
-    display_name: "Join demography data with CLTV data where both have user_id as key"
+    display_name: "Join two datasets where both have same format for primary key"
     action_reference: table_join_skey
     parameters:
       - param_name: "table1"
         df_param_type: table
-        display_name: "input demography table"
-        description: "select the demography table here"
+        display_name: "input first table"
+        description: "select the first table here"
       - param_name: "table2"
         df_param_type: table
-        display_name: "input CLTV table"
-        description: "select the CLTV table here"
+        display_name: "input second table"
+        description: "select the second table here"
       - param_name: "keycolumn"
         df_param_type: column
-        display_name: "user_id of demography and CLTV dataset"
-        description: "select the user_id column of demography and CLTV dataset here"
+        display_name: "common primary key of the datasets"
+        description: "select the common primary key of the datasets here"
