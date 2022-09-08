@@ -103,7 +103,7 @@ actions:
         description: "select the name of y-axis column"
   - unique_name: "Radar chart"
     display_name: "plotting a radar chart with dimension and value"
-    action_reference: sel_2_column
+    action_reference: sel_2_col_group
     charts: 
       - kind: 'radar_chart'
         name: 'Distribution in radial space'
