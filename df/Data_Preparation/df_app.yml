@@ -63,7 +63,7 @@ actions:
     display_name: "plotting a scatter chart between two axis"
     action_reference: sel_2_column
     charts: 
-      - kind: 'scatter_chart'
+      - kind: 'scatter'
         name: 'Distribution in catesian space'
         options:
           x: "{column_x}"
