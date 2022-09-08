@@ -80,7 +80,7 @@ actions:
         display_name: "Second date time column"
         description: "select the end date time column"
   - unique_name: "Scatter chart"
-    display_name: "plotting a scatter chart between two axis"
+    display_name: "plotting a scatter chart between two variables"
     action_reference: sel_2_column
     charts: 
       - kind: 'scatter'
@@ -99,5 +99,27 @@ actions:
         description: "Enter the name of the x-axis column"
       - param_name: "column_y"
         df_param_type: column
-        display_name: "First y-axis column"
+        display_name: "Enter y-axis column"
         description: "select the name of y-axis column"
+  - unique_name: "Radar chart"
+    display_name: "plotting a radar chart with dimension and value"
+    action_reference: sel_2_column
+    charts: 
+      - kind: 'radar_chart'
+        name: 'Distribution in radial space'
+        options:
+          dimension_column: "{column_x}"
+          axis_columns: "{column_y}"
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which the graph has to be created"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter dimension_column column"
+        description: "Enter the name of the dimension_column column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "Enter value or score column"
+        description: "select the name of value or score column"
