@@ -59,3 +59,25 @@ actions:
         df_param_type: column
         display_name: "Second date time column"
         description: "select the end date time column"
+  - unique_name: "Scatter chart"
+    display_name: "plotting a scatter chart between two axis"
+    action_reference: sel_2_column
+    charts: 
+      - kind: 'scatter_chart'
+        name: 'Distribution in catesian space'
+        options:
+          x: "{column_x}"
+          y: "{column_y}"
+    parameters:
+      - param_name: "table"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which the graph has to be created"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter x-axis column"
+        description: "Enter the name of the x-axis column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "First y-axis column"
+        description: "select the name of y-axis column"
