@@ -60,7 +60,7 @@ actions:
         display_name: "Second date time column"
         description: "select the end date time column"
   - unique_name: "date_difference_best_effort"
-    display_name: "Ageing between two dates"
+    display_name: "Ageing between two string dates"
     action_reference: calcolumn2
     parameters:
       - param_name: "table"
