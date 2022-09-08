@@ -69,7 +69,7 @@ actions:
           x: "{column_x}"
           y: "{column_y}"
     parameters:
-      - param_name: "table"
+      - param_name: "table1"
         df_param_type: table
         display_name: "input source table"
         description: "select the table for which the graph has to be created"
