@@ -109,7 +109,7 @@ actions:
         name: 'Distribution in radial space'
         options:
           dimension_column: "{column_x}"
-          axis_columns: "{column_y}"
+          axis_columns: "[{column_y}]"
     parameters:
       - param_name: "table1"
         df_param_type: table
@@ -120,6 +120,6 @@ actions:
         display_name: "Enter dimension_column column"
         description: "Enter the name of the dimension_column column"
       - param_name: "column_y"
-        df_param_type: column_names_list
+        df_param_type: column
         display_name: "Enter value or score column"
         description: "select the name of value or score column"
