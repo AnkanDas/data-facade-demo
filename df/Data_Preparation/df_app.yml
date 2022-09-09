@@ -109,7 +109,7 @@ actions:
         name: 'Distribution in radial space'
         options:
           dimension_column: "{column_x}"
-          axis_columns: "[{column_y}]"
+          axis_columns: ["{column_y}"]
     parameters:
       - param_name: "table1"
         df_param_type: table
