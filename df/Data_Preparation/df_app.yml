@@ -120,6 +120,6 @@ actions:
         display_name: "Enter dimension_column column"
         description: "Enter the name of the dimension_column column"
       - param_name: "column_y"
-        df_param_type: list
+        df_param_type: column_names_list
         display_name: "Enter value or score column"
         description: "select the name of value or score column"
