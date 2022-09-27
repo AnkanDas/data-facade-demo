@@ -118,8 +118,32 @@ actions:
       - param_name: "column_x"
         df_param_type: column
         display_name: "Enter dimension_column column"
-        description: "Enter the name of the dimension_column column"
+        description: "Enter the name of the dimension column"
       - param_name: "column_y"
         df_param_type: column
         display_name: "Enter value or score column"
         description: "select the name of value or score column"
+  - unique_name: "sel_3_column_groupby"
+    display_name: "select three columns and group by the first two and get sum of the third"
+    action_reference: sel_3_column_groupby
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the input table"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter dimension_column one"
+        description: "Enter the name of the first dimension_column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "Enter dimension_column two"
+        description: "Enter the name of the second dimension_column"
+      - param_name: "column_z"
+        df_param_type: column
+        display_name: "Enter value column"
+        description: "select the name of value column that will aggregate to sum"
+      - param_name: "total_column"
+        df_param_type: column
+        display_name: "Enter name of the new aggregated column"
+        description: "select the name of vnew aggregated column"
