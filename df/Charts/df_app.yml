@@ -1,5 +1,5 @@
 name: "Chart_Preparation"
-version: 1.1
+version: 1.0
 display_name: "Charts & Plots"
 description: "This app contains actions and flows that uses DBT to prepare the different charts and graphs needed for valualising different data"
   - unique_name: "Scatter chart"
