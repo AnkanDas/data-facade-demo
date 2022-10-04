@@ -1,5 +1,5 @@
 name: "Graphs & charts"
-version: 1.1
+version: 1.0
 display_name: "Graphs, Charts and Plots"
 description: "This app contains actions and flows that uses DBT to prepare the graphs and plots for visualisation"
   - unique_name: "Scatter chart"
