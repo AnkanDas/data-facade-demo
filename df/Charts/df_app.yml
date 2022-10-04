@@ -2,3 +2,25 @@ name: "Graphs & charts"
 version: 1.1
 display_name: "Graphs, Charts and Plots"
 description: "This app contains actions and flows that uses DBT to prepare the graphs and plots for visualisation"
+  - unique_name: "Scatter chart"
+    display_name: "plotting a scatter chart between two variables"
+    action_reference: sel_2_column
+    charts: 
+      - kind: 'scatter'
+        name: 'Distribution in catesian space'
+        options:
+          x: "{column_x}"
+          y: "{column_y}"
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which the graph has to be created"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter x-axis column"
+        description: "Enter the name of the x-axis column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "Enter y-axis column"
+        description: "select the name of y-axis column"
