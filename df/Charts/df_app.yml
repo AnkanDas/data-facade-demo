@@ -25,3 +25,77 @@ actions:
         df_param_type: column
         display_name: "Enter y-axis column"
         description: "select the name of y-axis column"
+actions:
+  - unique_name: "Bar chart"
+    display_name: "plotting a Bar chart between two variables"
+    action_reference: sel_2_column
+    charts: 
+      - kind: 'bar'
+        name: 'bar plot'
+        options:
+          x: "{column_x}"
+          y: "{column_y}"
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which the graph has to be created"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter x-axis column"
+        description: "Enter the name of the x-axis column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "Enter y-axis column"
+        description: "select the name of y-axis column"
+actions:
+  - unique_name: "Line chart"
+    display_name: "plotting a Line chart between two variables"
+    action_reference: sel_2_column
+    charts: 
+      - kind: 'line'
+        name: 'Line chart'
+        options:
+          x: "{column_x}"
+          y: "{column_y}"
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which the graph has to be created"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter x-axis column"
+        description: "Enter the name of the x-axis column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "Enter y-axis column"
+        description: "select the name of y-axis column"
+actions:
+  - unique_name: "Segment chart"
+    display_name: "plotting a Segment chart between two variables"
+    action_reference: sel_2_column
+    charts: 
+      - kind: 'segment'
+        name: 'segment chart'
+        options:
+          x: "{column_x}"
+          y: "{column_y}"
+          segments: "{segment_column}"
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the table for which the graph has to be created"
+      - param_name: "column_x"
+        df_param_type: column
+        display_name: "Enter x-axis column"
+        description: "Enter the name of the x-axis column"
+      - param_name: "column_y"
+        df_param_type: column
+        display_name: "Enter y-axis column"
+        description: "select the name of y-axis column"
+      - param_name: "column_z"
+        df_param_type: column
+        display_name: "Enter segments column"
+        description: "select the name of segment column"
