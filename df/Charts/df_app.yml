@@ -74,7 +74,7 @@ actions:
 actions:
   - unique_name: "Segment chart"
     display_name: "plotting a Segment chart between two variables"
-    action_reference: sel_2_column
+    action_reference: sel_3_column
     charts: 
       - kind: 'segment'
         name: 'segment chart'
