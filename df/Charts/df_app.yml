@@ -96,25 +96,3 @@ actions:
         df_param_type: column
         display_name: "Enter segments column"
         description: "select the name of segment column"
-  - unique_name: "Pie chart"
-    display_name: "plotting a pie chart between two variables"
-    action_reference: sel_2_column
-    charts: 
-      - kind: 'pie'
-        name: 'Pie chart'
-        options:
-          legends: "{column_x}"
-          y: "{column_y}"
-    parameters:
-      - param_name: "table1"
-        df_param_type: table
-        display_name: "input source table"
-        description: "select the table for which the graph has to be created"
-      - param_name: "column_x"
-        df_param_type: column
-        display_name: "Enter dimension column"
-        description: "Enter the name of the dimension column"
-      - param_name: "column_y"
-        df_param_type: column
-        display_name: "Enter value column"
-        description: "select the name of value column"
