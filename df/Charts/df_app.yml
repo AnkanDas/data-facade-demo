@@ -25,7 +25,6 @@ actions:
         df_param_type: column
         display_name: "Enter y-axis column"
         description: "select the name of y-axis column"
-actions:
   - unique_name: "Bar chart"
     display_name: "plotting a Bar chart between two variables"
     action_reference: sel_2_column
@@ -48,7 +47,6 @@ actions:
         df_param_type: column
         display_name: "Enter y-axis column"
         description: "select the name of y-axis column"
-actions:
   - unique_name: "Line chart"
     display_name: "plotting a Line chart between two variables"
     action_reference: sel_2_column
@@ -71,7 +69,6 @@ actions:
         df_param_type: column
         display_name: "Enter y-axis column"
         description: "select the name of y-axis column"
-actions:
   - unique_name: "Segment chart"
     display_name: "plotting a Segment chart between two variables"
     action_reference: sel_3_column
