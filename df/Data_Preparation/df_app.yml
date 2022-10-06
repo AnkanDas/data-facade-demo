@@ -111,3 +111,23 @@ actions:
         df_param_type: table
         display_name: "input  table"
         description: "select the table here"
+  - unique_name: "create new column by contactenation"
+    display_name: "select two columns, contacte them into a new column"
+    action_reference: concat_col_create
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the input table"
+      - param_name: "column1"
+        df_param_type: column
+        display_name: "Enter first column"
+        description: "Enter the name of the first column"
+      - param_name: "column2"
+        df_param_type: column
+        display_name: "Enter second column"
+        description: "Enter the name of the second column"
+      - param_name: "new_col_name"
+        df_param_type: column
+        display_name: "Enter new column"
+        description: "select the name of new column"
