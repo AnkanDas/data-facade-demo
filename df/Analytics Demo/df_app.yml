@@ -30,7 +30,7 @@ actions:
         display_name: "input devicePlatform"
         description: "select the devicePlatform from dorpdown"
   - unique_name: "row count of a table"
-    display_name: "Count of number of rwos in a table"
+    display_name: "Count of number of rows in a table"
     action_reference: row_count
     parameters:
       - param_name: "table"
