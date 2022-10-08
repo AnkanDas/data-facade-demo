@@ -1,0 +1,31 @@
+name: "Analytics Demo"
+version: 1.1
+display_name: "Data Models for Analytics Demo"
+description: "This app contains actions and flows that is used to prepare the Data Models for Analytics Demo"
+actions:
+  - unique_name: "New users for top sectors"
+    display_name: "Monthly percentage of new users in each of the top sectors"
+    action_reference: new_user_top_sectors
+    parameters:
+      - param_name: "table"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the source table here"
+      - param_name: "userType"
+        df_param_type: string
+        single_select_options: ["newUser", "oldUser", "Reactivated"]
+        display_name: "input user type"
+        description: "select the user tyoe from dorpdown"
+  - unique_name: "users who booked platfroms more than twice"
+    display_name: "Monthly users who booked different platfroms more than twice"
+    action_reference: users_who_booked_platforms
+    parameters:
+      - param_name: "table"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the source table here"
+      - param_name: "devicePlatform"
+        df_param_type: string
+        single_select_options: ["iximaad", "iximaio", "ixiweb", "iximatr", "iximweb", "mmxmatr"]
+        display_name: "input devicePlatform"
+        description: "select the devicePlatform from dorpdown"
