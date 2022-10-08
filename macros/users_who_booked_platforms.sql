@@ -14,3 +14,5 @@ FROM Total
 WHERE total_bookings >= 2
 )
 SELECT * FROM Agg
+
+{% endmacro %}
