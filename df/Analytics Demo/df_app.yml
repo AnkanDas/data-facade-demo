@@ -1,5 +1,5 @@
 name: "Analytics Demo"
-version: 1.1
+version: 1.0
 display_name: "Data Models for Analytics Demo"
 description: "This app contains actions and flows that is used to prepare the Data Models for Analytics Demo"
 actions:
@@ -29,3 +29,11 @@ actions:
         single_select_options: ["iximaad", "iximaio", "ixiweb", "iximatr", "iximweb", "mmxmatr"]
         display_name: "input devicePlatform"
         description: "select the devicePlatform from dorpdown"
+  - unique_name: "row count of a table"
+    display_name: "Count of number of rwos in a table"
+    action_reference: row_count
+    parameters:
+      - param_name: "table"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the source table here"
