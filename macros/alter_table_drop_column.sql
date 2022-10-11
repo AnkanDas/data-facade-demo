@@ -1,7 +1,7 @@
 {% macro drop_column(table1, column1) %}
 
 SELECT * INTO temptable
-FROM ixigo_analytics_data;
+FROM {table1};
 /* Drop the columns that are not needed */
 ALTER TABLE temptable
 DROP COLUMN {column1};
