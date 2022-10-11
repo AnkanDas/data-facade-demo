@@ -131,3 +131,15 @@ actions:
         df_param_type: column
         display_name: "Enter new column"
         description: "select the name of new column"
+  - unique_name: "alter table drop column"
+    display_name: "select a columnsto drop from a table"
+    action_reference: drop_column
+    parameters:
+      - param_name: "table1"
+        df_param_type: table
+        display_name: "input source table"
+        description: "select the input table"
+      - param_name: "column1"
+        df_param_type: column
+        display_name: "Enter the column to drop"
+        description: "Enter the name of the column to drop"
