@@ -131,7 +131,7 @@ actions:
         df_param_type: column
         display_name: "Enter new column"
         description: "select the name of new column"
-  - unique_name: "alter a table and drop column"
+  - unique_name: "alter a table and a drop column"
     display_name: "select a columns to drop from a table"
     action_reference: drop_column
     parameters:
