@@ -1,39 +1,75 @@
-name: "Analytics Demo"
+name: Analytics Demo
 version: 1.0
-display_name: "Data Models for Analytics Demo"
-description: "This app contains actions and flows that is used to prepare the Data Models for Analytics Demo"
+display_name: Data Models for Analytics Demo
+description: This app contains actions and flows that is used to prepare the Data
+  Models for Analytics Demo
+state: draft
 actions:
-  - unique_name: "New users for top sectors"
-    display_name: "Monthly percentage of new users in each of the top sectors"
-    action_reference: new_user_top_sectors
-    parameters:
-      - param_name: "table"
-        df_param_type: table
-        display_name: "input source table"
-        description: "select the source table here"
-      - param_name: "userType"
-        df_param_type: string
-        single_select_options: ["newUser", "oldUser", "Reactivated"]
-        display_name: "input user type"
-        description: "select the user tyoe from dorpdown"
-  - unique_name: "users who booked platfroms more than twice"
-    display_name: "Monthly users who booked different platfroms more than twice"
-    action_reference: users_who_booked_platforms
-    parameters:
-      - param_name: "table"
-        df_param_type: table
-        display_name: "input source table"
-        description: "select the source table here"
-      - param_name: "devicePlatform"
-        df_param_type: string
-        single_select_options: ["iximaad", "iximaio", "ixiweb", "iximatr", "iximweb", "mmxmatr"]
-        display_name: "input devicePlatform"
-        description: "select the devicePlatform from dorpdown"
-  - unique_name: "row count of a table"
-    display_name: "Count of number of rows in a table"
-    action_reference: row_count
-    parameters:
-      - param_name: "table"
-        df_param_type: table
-        display_name: "input source table"
-        description: "select the source table here"
+- unique_name: count_table_rows
+  action_reference: count_table_rows.sql
+  display_name: count_table_rows
+  description: counts the number of rows in a table.
+  state: draft
+  parameters:
+  - param_name: table_name
+    df_param_type: table
+    display_name: table_name
+    user_input_required: true
+  source_type: df_sql
+- unique_name: New users for top sectors
+  action_reference: new_user_top_sectors
+  display_name: Monthly percentage of new users in each of the top sectors
+  description: Monthly percentage of new users in each of the top sectors
+  state: draft
+  parameters:
+  - param_name: table
+    df_param_type: table
+    display_name: input source table
+    description: select the source table here
+    user_input_required: true
+  - param_name: userType
+    df_param_type: string
+    display_name: input user type
+    description: select the user tyoe from dorpdown
+    single_select_options:
+    - newUser
+    - oldUser
+    - Reactivated
+    user_input_required: true
+  source_type: macro
+- unique_name: users who booked platfroms more than twice
+  action_reference: users_who_booked_platforms
+  display_name: Monthly users who booked different platfroms more than twice
+  description: Monthly users who booked different platfroms more than twice
+  state: draft
+  parameters:
+  - param_name: table
+    df_param_type: table
+    display_name: input source table
+    description: select the source table here
+    user_input_required: true
+  - param_name: devicePlatform
+    df_param_type: string
+    display_name: input devicePlatform
+    description: select the devicePlatform from dorpdown
+    single_select_options:
+    - iximaad
+    - iximaio
+    - ixiweb
+    - iximatr
+    - iximweb
+    - mmxmatr
+    user_input_required: true
+  source_type: macro
+- unique_name: row count of a table
+  action_reference: row_count
+  display_name: Count of number of rows in a table
+  description: Count of number of rows in a table
+  state: draft
+  parameters:
+  - param_name: table
+    df_param_type: table
+    display_name: input source table
+    description: select the source table here
+    user_input_required: true
+  source_type: macro
