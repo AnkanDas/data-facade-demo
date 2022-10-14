@@ -29,11 +29,3 @@ actions:
         single_select_options: ["iximaad", "iximaio", "ixiweb", "iximatr", "iximweb", "mmxmatr"]
         display_name: "input devicePlatform"
         description: "select the devicePlatform from dorpdown"
-  - unique_name: "row count of a table"
-    display_name: "Count of number of rows in a table"
-    action_reference: row_count
-    parameters:
-      - param_name: "table"
-        df_param_type: table
-        display_name: "input source table"
-        description: "select the source table here"
