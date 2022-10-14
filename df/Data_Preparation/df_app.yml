@@ -103,8 +103,8 @@ actions:
         df_param_type: column
         display_name: "Enter name of the new aggregated column"
         description: "select the name of vnew aggregated column"
-  - unique_name: "Count rows of table"
-    display_name: "Get rows count of a table"
+  - unique_name: "Show rows of table"
+    display_name: "Show the table"
     action_reference: table_count
     parameters:
       - param_name: "table1"
