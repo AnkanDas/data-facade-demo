@@ -42,3 +42,20 @@ actions:
     description: input_table
     user_input_required: true
   source_type: df_sql
+flows:
+- unique_name: Test_Flow
+  flow_actions:
+  - action_reference: analyze_trends_sql-Duplicate
+    parameters:
+    - param_name: agg_function
+      default_value: SUM
+    - param_name: target_column
+      default_value: DATE
+    - param_name: dim_column
+      default_value: DATE
+    - param_name: input_table
+      default_value: STOCK_DATA
+    display_name: analyze_trends_sql-Duplicate
+    stage_name: Enter Stage Name here
+  display_name: Test_Flow
+  description: ''
