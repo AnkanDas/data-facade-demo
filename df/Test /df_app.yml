@@ -57,5 +57,12 @@ flows:
       default_value: STOCK_DATA
     display_name: analyze_trends_sql-Duplicate
     stage_name: Enter Stage Name here
+  - action_reference: Table1000Rows
+    parameters:
+    - param_name: df
+      source_action: analyze_trends_sql-Duplicate-0
+    display_name: Table1000Rows
+    stage_name: Enter Stage Name here
+    application_name: SystemApplication
   display_name: Test_Flow
   description: ''
