@@ -1,0 +1,16 @@
+name: Ravi_Demo
+version: 0.1
+display_name: Ravi_Demo
+description: Description
+state: draft
+actions:
+- unique_name: Test
+  action_reference: Test.sql
+  display_name: Test
+  state: draft
+  parameters:
+  - param_name: table_name
+    df_param_type: table
+    display_name: table_name
+    user_input_required: true
+  source_type: df_sql
