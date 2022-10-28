@@ -5,7 +5,7 @@ description: Description
 state: draft
 actions:
 - unique_name: group_for_amount
-  action_reference: group_for_amount.py
+  action_reference: group_for_amount
   display_name: group_for_amount
   state: draft
   parameters:
@@ -31,7 +31,7 @@ actions:
     user_input_required: true
   source_type: python
 - unique_name: get_attach_rate_report
-  action_reference: get_attach_rate_report.py
+  action_reference: get_attach_rate_report
   display_name: get_attach_rate_report
   state: draft
   parameters:
@@ -57,7 +57,7 @@ actions:
     user_input_required: true
   source_type: python
 - unique_name: get_journey_type
-  action_reference: get_journey_type.py
+  action_reference: get_journey_type
   display_name: get_journey_type
   state: draft
   parameters:
@@ -75,7 +75,7 @@ actions:
     user_input_required: true
   source_type: python
 - unique_name: plot_data_pie
-  action_reference: plot_data_pie.py
+  action_reference: plot_data_pie
   display_name: plot_data_pie
   state: draft
   parameters:
@@ -97,7 +97,7 @@ actions:
     user_input_required: true
   source_type: python
 - unique_name: df_join_operation
-  action_reference: df_join_operation.py
+  action_reference: df_join_operation
   display_name: df_join_operation
   state: draft
   parameters:
@@ -131,7 +131,7 @@ actions:
     user_input_required: true
   source_type: python
 - unique_name: merge_flights_with_amounts
-  action_reference: merge_flights_with_amounts.py
+  action_reference: merge_flights_with_amounts
   display_name: merge_flights_with_amounts
   state: draft
   parameters:
