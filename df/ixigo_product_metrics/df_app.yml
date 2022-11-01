@@ -242,7 +242,7 @@ actions:
     user_input_required: true
   source_type: python
 - unique_name: Join with different keys
-  action_reference: Join with different keys.sql
+  action_reference: Join with different keys
   display_name: Join with different keys
   description: Join with different keys
   state: draft
