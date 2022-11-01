@@ -519,7 +519,7 @@ flows:
   - param_name: Enter the end_date
     df_param_type: string
     display_name: Enter the end_date
-    default_value: '2022-09-17'
+    default_value: '2022-09-15'
     user_input_required: true
   - param_name: Enter the Grouping Index
     df_param_type: column
@@ -549,7 +549,7 @@ flows:
   - param_name: Enter the start_date
     df_param_type: string
     display_name: Enter the start_date
-    default_value: '2022-09-16'
+    default_value: '2022-09-14'
     user_input_required: true
   - param_name: Enter the Origin column of Flights Data
     df_param_type: string
