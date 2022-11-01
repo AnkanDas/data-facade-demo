@@ -6,7 +6,7 @@ description: This app contains actions and flows that is used to prepare the Dat
 state: draft
 actions:
 - unique_name: Show table
-  action_reference: Show table.sql
+  action_reference: Show table
   display_name: Show table
   state: draft
   parameters:
