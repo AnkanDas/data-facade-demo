@@ -1,0 +1,164 @@
+unique_name: Calculate Attachment Rate
+flow_actions:
+- action_reference: Df_join_operation
+  parameters:
+  - param_name: product_param
+    global_parameter: Product table parameter
+  - param_name: df2_key
+    global_parameter: Enter the booking_id for flight data
+  - param_name: df1
+    global_parameter: Enter products data table
+  - param_name: df2
+    global_parameter: Enter flights data table
+  - param_name: df1_key
+    global_parameter: Enter the booking_id for product data
+  - param_name: join_type
+    default_value: left
+  - param_name: df2_new_col_add
+    global_parameter: Enter the origin column of flight data
+  display_name: Df_join_operation
+  stage_name: Stage 1
+- action_reference: Get_journey_type
+  parameters:
+  - param_name: data
+    source_action: Df_join_operation-0
+  - param_name: created_column_name
+    default_value: journeyType
+  - param_name: compare_column
+    global_parameter: Enter the origin column of flight data
+  display_name: Get_journey_type
+  stage_name: Stage 1
+- action_reference: Group_for_amount
+  parameters:
+  - param_name: claim_amount
+    global_parameter: Enter the claim amount column
+  - param_name: premium_amount
+    global_parameter: Enter the premium column
+  - param_name: trip_id
+    global_parameter: Enter the booking_id for product data
+  - param_name: journey_info_column
+    default_value: journeyType
+  - param_name: data
+    source_action: Get_journey_type-1
+  display_name: Group_for_amount
+  stage_name: Stage 1
+- action_reference: Join with different keys
+  parameters:
+  - param_name: table1
+    global_parameter: Enter flights data table
+  - param_name: table2
+    source_action: Group_for_amount-2
+  - param_name: keycolumn1
+    global_parameter: Enter the booking_id for flight data
+  - param_name: keycolumn2
+    global_parameter: Enter the booking_id for product data
+  display_name: Join with different keys
+  stage_name: Stage 2
+- action_reference: Get_attach_rate_report
+  parameters:
+  - param_name: from_date_str
+    global_parameter: Enter the start_date
+  - param_name: data
+    source_action: Join with different keys-3
+  - param_name: group_column
+    global_parameter: Enter the grouping index
+  - param_name: to_date_str
+    global_parameter: Enter the end_date
+  - param_name: product_param
+    global_parameter: Product table parameter
+  display_name: Get_attach_rate_report
+  stage_name: Stage 2
+- action_reference: plot_data_pie
+  parameters:
+  - param_name: group_column
+    global_parameter: Enter the grouping index
+  - param_name: y
+    global_parameter: Enter the y-value of the plot
+  - param_name: claim_amount
+    global_parameter: Enter the claim amount column
+  - param_name: name
+    global_parameter: Enter the name of the plot
+  - param_name: premium_amount
+    global_parameter: Enter the premium column
+  - param_name: journey_info_column
+    default_value: journeyType
+  - param_name: data
+    source_action: Get_attach_rate_report-4
+  - param_name: trip_id
+    global_parameter: Enter the booking_id for product data
+  display_name: plot_data_pie
+  stage_name: Stage 3
+display_name: Calculate Attachment Rate
+parameters:
+- param_name: Enter the name of the plot
+  df_param_type: string
+  display_name: Enter the name of the plot
+  default_value: viz
+  user_input_required: true
+- param_name: Enter the y-value of the plot
+  df_param_type: string
+  display_name: Enter the y-value of the plot
+  default_value: Total_Bookings
+  user_input_required: true
+- param_name: Enter the booking_id for flight data
+  df_param_type: column
+  display_name: Enter the booking_id for flight data
+  user_input_required: true
+- param_name: Enter the claim amount column
+  df_param_type: column
+  display_name: Enter the claim amount column
+  user_input_required: true
+- param_name: Enter products data table
+  df_param_type: table
+  display_name: Enter products data table
+  user_input_required: true
+- param_name: Enter the premium column
+  df_param_type: column
+  display_name: Enter the premium column
+  user_input_required: true
+- param_name: Enter the origin column of flight data
+  df_param_type: string
+  display_name: Enter the origin column of flight data
+  default_value: origin
+  user_input_required: true
+- param_name: Product table parameter
+  df_param_type: string
+  display_name: Product table parameter
+  single_select_options:
+  - availingFreeReschedule
+  - availingFreeCancellation
+  user_input_required: true
+- param_name: Enter the origin column of flight data
+  df_param_type: column
+  display_name: Enter the origin column of flight data
+  default_value: origin
+  user_input_required: true
+- param_name: Enter flights data table
+  df_param_type: table
+  display_name: Enter flights data table
+  default_value: flights_data
+  user_input_required: true
+- param_name: Enter flights data table
+  df_param_type: table
+  display_name: Enter flights data table
+  default_value: flights_data
+  user_input_required: true
+- param_name: Enter the booking_id for product data
+  df_param_type: column
+  display_name: Enter the booking_id for product data
+  user_input_required: true
+- param_name: Enter the grouping index
+  df_param_type: column
+  display_name: Enter the grouping index
+  user_input_required: true
+- param_name: Enter the end_date
+  df_param_type: string
+  display_name: Enter the end_date
+  default_value: '2022-09-17'
+  user_input_required: true
+- param_name: Enter the start_date
+  df_param_type: string
+  display_name: Enter the start_date
+  default_value: '2022-09-16'
+  user_input_required: true
+description: Calculates and visualises attachment rate

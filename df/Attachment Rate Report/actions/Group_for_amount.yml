@@ -1,0 +1,26 @@
+unique_name: Group_for_amount
+action_reference: Group_for_amount
+display_name: Group_for_amount
+state: draft
+parameters:
+- param_name: data
+  df_param_type: table
+  display_name: data
+  user_input_required: true
+- param_name: trip_id
+  df_param_type: column
+  display_name: trip_id
+  user_input_required: true
+- param_name: journey_info_column
+  df_param_type: column
+  display_name: journey_info_column
+  user_input_required: true
+- param_name: claim_amount
+  df_param_type: column
+  display_name: claim_amount
+  user_input_required: true
+- param_name: premium_amount
+  df_param_type: column
+  display_name: premium_amount
+  user_input_required: true
+source_type: python

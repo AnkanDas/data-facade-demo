@@ -1,0 +1,18 @@
+unique_name: Get_journey_type
+action_reference: Get_journey_type
+display_name: Get_journey_type
+state: draft
+parameters:
+- param_name: data
+  df_param_type: table
+  display_name: data
+  user_input_required: true
+- param_name: created_column_name
+  df_param_type: column
+  display_name: created_column_name
+  user_input_required: true
+- param_name: compare_column
+  df_param_type: column
+  display_name: compare_column
+  user_input_required: true
+source_type: python

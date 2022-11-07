@@ -1,0 +1,9 @@
+name: Attachment Rate Report
+version: 0.1
+display_name: Attachment Rate Report - IXIGO
+description: 'Attach rate is defined as % users using insured booking, i.e say 4 lks
+  users are booking on trn platform, and you want to 1.5 lks users to be insured bookings
+  (going up from 1lk insured bookings) this gives attached rate to 37.5% to be achieved
+  from the current state of 25%. On getting the attach rate, ixigo does hit and trial
+  experiments on increasing/decreasing the premium to increase insured bookings. '
+state: draft
