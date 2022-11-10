@@ -1,0 +1,34 @@
+unique_name: df_join_operation_04_11_2022
+action_reference: df_join_operation_04_11_2022
+display_name: df_join_operation_04_11_2022
+state: draft
+parameters:
+- param_name: df1
+  df_param_type: table
+  display_name: df1
+  user_input_required: true
+- param_name: df2
+  df_param_type: table
+  display_name: df2
+  user_input_required: true
+- param_name: df1_key
+  df_param_type: column
+  display_name: df1_key
+  user_input_required: true
+- param_name: df2_key
+  df_param_type: column
+  display_name: df2_key
+  user_input_required: true
+- param_name: df2_new_col_add
+  df_param_type: string
+  display_name: df2_new_col_add
+  user_input_required: true
+- param_name: product_param
+  df_param_type: string
+  display_name: product_param
+  user_input_required: true
+- param_name: join_type
+  df_param_type: string
+  display_name: join_type
+  user_input_required: true
+source_type: python
