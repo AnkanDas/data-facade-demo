@@ -1,0 +1,147 @@
+unique_name: Attachment Report_04_11_2022
+flow_actions:
+- action_reference: df_join_operation
+  parameters:
+  - param_name: df1_key
+    global_parameter: Enter the Booking Id column for Products Data
+  - param_name: df1
+    global_parameter: Enter Products Data Table
+  - param_name: df2
+    global_parameter: Enter Flights Data Table
+  - param_name: df2_new_col_add
+    global_parameter: Enter the Origin column of Flights Data
+  - param_name: join_type
+    default_value: Left
+  - param_name: product_param
+    global_parameter: Product table Parameter
+  - param_name: df2_key
+    global_parameter: Enter BookingId column for Flights Data
+  display_name: df_join_operation
+  stage_name: Stage 1
+  application_name: ixigo_product_metrics
+- action_reference: Get_journey_type_04_11_2022
+  parameters:
+  - param_name: data
+    source_action: df_join_operation-0
+  - param_name: created_column_name
+    default_value: journeyType
+  - param_name: compare_column
+    global_parameter: Enter the Origin column of Flights Data
+  display_name: Get_journey_type_04_11_2022
+  stage_name: Stage 1
+- action_reference: Group_for_amount_04_11_2022
+  parameters:
+  - param_name: claim_amount
+    global_parameter: Enter the Claim Amount Column
+  - param_name: trip_id
+    global_parameter: Enter the Booking Id column for Products Data
+  - param_name: data
+    source_action: Get_journey_type_04_11_2022-1
+  - param_name: journey_info_column
+    default_value: Journeytype
+  - param_name: premium_amount
+    global_parameter: Enter the Premium Amount Column
+  display_name: Group_for_amount_04_11_2022
+  stage_name: Stage 1
+- action_reference: Join with different keys_04_11_2022
+  parameters:
+  - param_name: table1
+    global_parameter: Enter Flights Data Table (for stage 2)
+  - param_name: table2
+    source_action: Group_for_amount_04_11_2022-2
+  - param_name: keycolumn1
+    global_parameter: Enter BookingId column for Flights Data
+  - param_name: keycolumn2
+    global_parameter: Enter the Booking Id column for Products Data
+  display_name: Join with different keys_04_11_2022
+  stage_name: Stage 2
+- action_reference: get_attach_rate_report
+  parameters:
+  - param_name: product_param
+    global_parameter: Product table Parameter
+  - param_name: data
+    source_action: Join with different keys_04_11_2022-3
+  - param_name: group_column
+    global_parameter: Enter the Grouping Index
+  - param_name: to_date_str
+    global_parameter: Enter the end_date
+  - param_name: from_date_str
+    global_parameter: Enter the start_date
+  display_name: get_attach_rate_report
+  stage_name: Stage 2
+  application_name: ixigo_product_metrics
+display_name: Attachment Report_04_11_2022
+parameters:
+- param_name: Enter the Booking Id column for Products Data
+  df_param_type: string
+  display_name: Enter the Booking Id column for Products Data
+  user_input_required: true
+- param_name: Enter BookingId column for Flights Data
+  df_param_type: string
+  display_name: Enter BookingId column for Flights Data
+  user_input_required: true
+- param_name: Enter Products Data Table
+  df_param_type: string
+  display_name: Enter Products Data Table
+  user_input_required: true
+- param_name: Enter Flights Data Table
+  df_param_type: string
+  display_name: Enter Flights Data Table
+  user_input_required: true
+- param_name: Enter BookingId column for Flights Data
+  df_param_type: string
+  display_name: Enter BookingId column for Flights Data
+  user_input_required: true
+- param_name: Enter the Booking Id column for Products Data
+  df_param_type: string
+  display_name: Enter the Booking Id column for Products Data
+  user_input_required: true
+- param_name: Product table Parameter
+  df_param_type: string
+  display_name: Product table Parameter
+  user_input_required: true
+- param_name: Enter the end_date
+  df_param_type: string
+  display_name: Enter the end_date
+  user_input_required: true
+- param_name: Enter the start_date
+  df_param_type: string
+  display_name: Enter the start_date
+  user_input_required: true
+- param_name: Enter the Grouping Index
+  df_param_type: string
+  display_name: Enter the Grouping Index
+  user_input_required: true
+- param_name: Enter the Booking Id column for Products Data
+  df_param_type: string
+  display_name: Enter the Booking Id column for Products Data
+  user_input_required: true
+- param_name: Enter the Claim Amount Column
+  df_param_type: string
+  display_name: Enter the Claim Amount Column
+  user_input_required: true
+- param_name: Enter the Premium Amount Column
+  df_param_type: string
+  display_name: Enter the Premium Amount Column
+  user_input_required: true
+- param_name: Enter the Origin column of Flights Data
+  df_param_type: string
+  display_name: Enter the Origin column of Flights Data
+  user_input_required: true
+- param_name: Product table Parameter
+  df_param_type: string
+  display_name: Product table Parameter
+  user_input_required: true
+- param_name: Parameter
+  df_param_type: string
+  display_name: Parameter
+  user_input_required: true
+- param_name: Enter the Origin column of Flights Data
+  df_param_type: string
+  display_name: Enter the Origin column of Flights Data
+  user_input_required: true
+- param_name: Enter Flights Data Table (for stage 2)
+  df_param_type: string
+  display_name: Enter Flights Data Table (for stage 2)
+  user_input_required: true
+description: Attachment Report_04_11_2022
