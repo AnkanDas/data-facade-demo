@@ -1,0 +1,45 @@
+unique_name: Df_join_operation
+action_reference: Df_join_operation
+display_name: Df_join_operation
+description: joining two tables using python. Here we only join the product table
+  with 2 columns of flights table
+state: draft
+parameters:
+- param_name: df1
+  df_param_type: table
+  display_name: df1
+  user_input_required: true
+- param_name: df2
+  df_param_type: table
+  display_name: df2
+  user_input_required: true
+- param_name: df1_key
+  df_param_type: column
+  display_name: df1_key
+  user_input_required: true
+- param_name: df2_key
+  df_param_type: column
+  display_name: df2_key
+  user_input_required: true
+- param_name: df2_new_col_add
+  df_param_type: column
+  display_name: df2_new_col_add
+  user_input_required: true
+- param_name: product_param
+  df_param_type: string
+  display_name: product_param
+  single_select_options:
+  - availingFreeReschedule
+  - availingFreeCancellation
+  user_input_required: true
+- param_name: join_type
+  df_param_type: string
+  display_name: join_type
+  single_select_options:
+  - left
+  - right
+  - inner
+  - outer
+  - cross
+  user_input_required: true
+source_type: python

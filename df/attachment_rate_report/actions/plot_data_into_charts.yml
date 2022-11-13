@@ -1,0 +1,39 @@
+unique_name: plot_data_into_charts
+action_reference: plot_data_into_charts
+display_name: plot_data_into_charts
+description: plot the attachment rates into bar and pie charts
+state: draft
+parameters:
+- param_name: group_column
+  df_param_type: column
+  display_name: group_column
+  user_input_required: true
+- param_name: name
+  df_param_type: string
+  display_name: name
+  user_input_required: true
+- param_name: y
+  df_param_type: string
+  display_name: y
+  user_input_required: true
+- param_name: data
+  df_param_type: table
+  display_name: data
+  user_input_required: true
+- param_name: trip_id
+  df_param_type: column
+  display_name: trip_id
+  user_input_required: true
+- param_name: journey_info_column
+  df_param_type: column
+  display_name: journey_info_column
+  user_input_required: true
+- param_name: claim_amount
+  df_param_type: column
+  display_name: claim_amount
+  user_input_required: true
+- param_name: premium_amount
+  df_param_type: column
+  display_name: premium_amount
+  user_input_required: true
+source_type: python
