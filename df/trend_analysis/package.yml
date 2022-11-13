@@ -1,0 +1,6 @@
+name: trend_analysis
+version: 0.1
+display_name: Trend Analysis & Reports
+description: This package contains all actions and flows for analysis of different
+  trends and generate graphs and charts for review
+state: draft
