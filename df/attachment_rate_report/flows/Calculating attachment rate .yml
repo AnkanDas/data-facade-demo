@@ -68,28 +68,26 @@ flow_actions:
     global_parameter: Enter the start date
   display_name: Get_attach_rate
   stage_name: Stage 2
-- action_reference: plot_data_into_charts
-  parameters:
-  - param_name: group_column
-    global_parameter: Enter the grouping index
-  - param_name: data
-    source_action: Get_attach_rate-4
-  - param_name: journey_info_column
-    default_value: journeyType
-  - param_name: y
-    global_parameter: Enter the y-value of the plot
-  - param_name: name
-    global_parameter: Enter the name of the plot
-  - param_name: claim_amount
-    global_parameter: Enter the claim amount column
-  - param_name: trip_id
-    global_parameter: Enter the booking_id for product data
-  - param_name: premium_amount
-    global_parameter: Enter the premium amount column
-  display_name: plot_data_into_charts
-  stage_name: Stage 3
 display_name: 'Calculating attachment rate '
 parameters:
+- param_name: Enter the premium amount column
+  df_param_type: column
+  display_name: Enter the premium amount column
+  user_input_required: true
+- param_name: Enter flights data table (for SQL)
+  df_param_type: table
+  display_name: Enter flights data table (for SQL)
+  default_value: flights_data
+  user_input_required: true
+- param_name: Enter the grouping index
+  df_param_type: column
+  display_name: Enter the grouping index
+  user_input_required: true
+- param_name: Enter the end date
+  df_param_type: string
+  display_name: Enter the end date
+  default_value: '2022-09-17'
+  user_input_required: true
 - param_name: Enter products data table
   df_param_type: table
   display_name: Enter products data table
@@ -103,16 +101,6 @@ parameters:
   df_param_type: string
   display_name: Enter the start date
   default_value: '2022-09-16'
-  user_input_required: true
-- param_name: Enter the name of the plot
-  df_param_type: string
-  display_name: Enter the name of the plot
-  default_value: Visualise
-  user_input_required: true
-- param_name: Enter the y-value of the plot
-  df_param_type: string
-  display_name: Enter the y-value of the plot
-  default_value: Total_Bookings
   user_input_required: true
 - param_name: Enter the booking_id for product data
   df_param_type: column
@@ -137,23 +125,5 @@ parameters:
 - param_name: Enter the claim amount column
   df_param_type: column
   display_name: Enter the claim amount column
-  user_input_required: true
-- param_name: Enter the premium amount column
-  df_param_type: column
-  display_name: Enter the premium amount column
-  user_input_required: true
-- param_name: Enter flights data table (for SQL)
-  df_param_type: table
-  display_name: Enter flights data table (for SQL)
-  default_value: flights_data
-  user_input_required: true
-- param_name: Enter the grouping index
-  df_param_type: column
-  display_name: Enter the grouping index
-  user_input_required: true
-- param_name: Enter the end date
-  df_param_type: string
-  display_name: Enter the end date
-  default_value: '2022-09-17'
   user_input_required: true
 description: This flow create the attachment rate report

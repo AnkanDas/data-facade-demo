@@ -8,26 +8,32 @@ parameters:
 - param_name: df1
   df_param_type: table
   display_name: df1
+  description: df1
   user_input_required: true
 - param_name: df2
   df_param_type: table
   display_name: df2
+  description: df2
   user_input_required: true
 - param_name: df1_key
   df_param_type: column
   display_name: df1_key
+  description: df1_key
   user_input_required: true
 - param_name: df2_key
   df_param_type: column
   display_name: df2_key
+  description: df2_key
   user_input_required: true
 - param_name: df2_new_col_add
   df_param_type: column
   display_name: df2_new_col_add
+  description: df2_new_col_add
   user_input_required: true
 - param_name: product_param
   df_param_type: string
   display_name: product_param
+  description: product_param
   single_select_options:
   - availingFreeReschedule
   - availingFreeCancellation
@@ -35,6 +41,7 @@ parameters:
 - param_name: join_type
   df_param_type: string
   display_name: join_type
+  description: join_type
   single_select_options:
   - left
   - right
