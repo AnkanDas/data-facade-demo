@@ -5,8 +5,8 @@ charts:
   expose_data: true
   name: Trend Chart
   options:
-    x: result
-    y: '{dim_column}'
+    x: '{dim_column}'
+    y: result
 - kind: pie
   name: Overall Split
   expose_data: true
@@ -17,14 +17,6 @@ display_name: Analyse Trends
 description: Analyse trends of your metrics & KPIs
 state: draft
 parameters:
-- param_name: agg_function
-  df_param_type: string_no_quotes
-  display_name: Aggregate type
-  user_input_required: true
-- param_name: target_column
-  df_param_type: column
-  display_name: Target KPIs
-  user_input_required: true
 - param_name: dim_column
   df_param_type: column
   display_name: Group Fields
@@ -32,5 +24,14 @@ parameters:
 - param_name: input_table
   df_param_type: table
   display_name: Input Table
+  default_value: flights_data
+  user_input_required: true
+- param_name: agg_function
+  df_param_type: string_no_quotes
+  display_name: Aggregate type
+  user_input_required: true
+- param_name: target_column
+  df_param_type: column
+  display_name: Target KPIs
   user_input_required: true
 source_type: df_sql
