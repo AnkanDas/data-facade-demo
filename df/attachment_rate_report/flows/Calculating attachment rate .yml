@@ -73,51 +73,62 @@ parameters:
 - param_name: Enter the premium amount column
   df_param_type: column
   display_name: Enter the premium amount column
+  description: Enter the premium amount column
   user_input_required: true
 - param_name: Enter flights data table (for SQL)
   df_param_type: table
   display_name: Enter flights data table (for SQL)
+  description: Enter flights data table (for SQL)
   default_value: flights_data
   user_input_required: true
 - param_name: Enter the grouping index
   df_param_type: column
   display_name: Enter the grouping index
+  description: Enter the grouping index
   user_input_required: true
 - param_name: Enter the end date
   df_param_type: string
   display_name: Enter the end date
+  description: Enter the end date
   default_value: '2022-09-17'
   user_input_required: true
 - param_name: Enter products data table
   df_param_type: table
   display_name: Enter products data table
+  description: Enter products data table
   user_input_required: true
 - param_name: Enter flights data table
   df_param_type: table
   display_name: Enter flights data table
+  description: Enter flights data table
   default_value: flights_data
   user_input_required: true
 - param_name: Enter the start date
   df_param_type: string
   display_name: Enter the start date
+  description: Enter the start date
   default_value: '2022-09-16'
   user_input_required: true
 - param_name: Enter the booking_id for product data
   df_param_type: column
   display_name: Enter the booking_id for product data
+  description: Enter the booking_id for product data
   user_input_required: true
 - param_name: Enter the booking_id for flight data
   df_param_type: column
   display_name: Enter the booking_id for flight data
+  description: Enter the booking_id for flight data
   user_input_required: true
 - param_name: Enter the origin column of flight data
   df_param_type: column
   display_name: Enter the origin column of flight data
+  description: Enter the origin column of flight data
   default_value: origin
   user_input_required: true
 - param_name: Product table parameter
   df_param_type: string
   display_name: Product table parameter
+  description: Product table parameter
   single_select_options:
   - availingFreeReschedule
   - availingFreeCancellation
@@ -125,5 +136,6 @@ parameters:
 - param_name: Enter the claim amount column
   df_param_type: column
   display_name: Enter the claim amount column
+  description: Enter the claim amount column
   user_input_required: true
 description: This flow create the attachment rate report

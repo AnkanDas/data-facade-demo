@@ -1,0 +1,33 @@
+unique_name: Select two columns
+action_reference: Select two columns
+charts:
+- kind: bar
+  expose_data: false
+  name: Trend Plot
+  options:
+    x: ''
+    y: ''
+display_name: Select two columns
+description: selects two column and plots a graph
+state: draft
+parameters:
+- param_name: dimension
+  df_param_type: column
+  display_name: Dimensions
+  user_input_required: true
+- param_name: result
+  df_param_type: string_no_quotes
+  display_name: KPIs
+  single_select_options:
+  - '"Attach_Rate"'
+  - '"Avg_Premium"'
+  - '"ATV Reschedule"'
+  - '"ATV Total"'
+  - '"Insured_Bookings"'
+  - '"Total_Bookings"'
+  user_input_required: true
+- param_name: table_name
+  df_param_type: table
+  display_name: table_name
+  user_input_required: true
+source_type: df_sql
