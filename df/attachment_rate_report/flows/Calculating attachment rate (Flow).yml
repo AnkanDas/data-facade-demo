@@ -1,0 +1,141 @@
+unique_name: Calculating attachment rate (Flow)
+flow_actions:
+- action_reference: Df_join_operation
+  parameters:
+  - param_name: df2
+    global_parameter: Enter flights data table
+  - param_name: df1_key
+    global_parameter: Enter the booking_id for product data
+  - param_name: join_type
+    default_value: left
+  - param_name: df2_key
+    global_parameter: Enter the booking_id for flight data
+  - param_name: df1
+    global_parameter: Enter products data table
+  - param_name: product_param
+    global_parameter: Product table parameter
+  - param_name: df2_new_col_add
+    global_parameter: Enter the origin column of flight data
+  display_name: Df_join_operation
+  stage_name: Stage 1
+- action_reference: Get_journey_type
+  parameters:
+  - param_name: data
+    source_action: Df_join_operation-0
+  - param_name: created_column_name
+    default_value: journeyType
+  - param_name: compare_column
+    global_parameter: Enter the origin column of flight data
+  display_name: Get_journey_type
+  stage_name: Stage 1
+- action_reference: Group_for_amount
+  parameters:
+  - param_name: premium_amount
+    global_parameter: Enter the premium amount column
+  - param_name: trip_id
+    global_parameter: Enter the booking_id for product data
+  - param_name: claim_amount
+    global_parameter: Enter the claim amount column
+  - param_name: data
+    source_action: Get_journey_type-1
+  - param_name: journey_info_column
+    default_value: journeyType
+  display_name: Group_for_amount
+  stage_name: Stage 1
+- action_reference: Join with different keys
+  parameters:
+  - param_name: table1
+    global_parameter: Enter flights data table (for SQL)
+  - param_name: table2
+    source_action: Group_for_amount-2
+  - param_name: keycolumn1
+    global_parameter: Enter the booking_id for flight data
+  - param_name: keycolumn2
+    global_parameter: Enter the booking_id for product data
+  display_name: Join with different keys
+  stage_name: Stage 2
+- action_reference: Get_attach_rate
+  parameters:
+  - param_name: data
+    source_action: Join with different keys-3
+  - param_name: from_date_str
+    global_parameter: Enter the start date
+  - param_name: to_date_str
+    global_parameter: Enter the end date
+  - param_name: product_param
+    global_parameter: Product table parameter
+  - param_name: group_column
+    global_parameter: Enter the grouping index
+  display_name: Get_attach_rate
+  stage_name: Stage 2
+display_name: Calculating attachment rate (Flow)
+parameters:
+- param_name: Enter flights data table (for SQL)
+  df_param_type: table
+  display_name: Enter flights data table (for SQL)
+  description: Enter flights data table (for SQL)
+  default_value: flights_data
+  user_input_required: true
+- param_name: Enter products data table
+  df_param_type: table
+  display_name: Enter products data table
+  description: Enter products data table
+  user_input_required: true
+- param_name: Enter flights data table
+  df_param_type: table
+  display_name: Enter flights data table
+  description: Enter flights data table
+  default_value: flights_data
+  user_input_required: true
+- param_name: Enter the start date
+  df_param_type: string
+  display_name: Enter the start date
+  description: Enter the start date
+  default_value: '2022-09-16'
+  user_input_required: true
+- param_name: Enter the booking_id for product data
+  df_param_type: column
+  display_name: Enter the booking_id for product data
+  description: Enter the booking_id for product data
+  user_input_required: true
+- param_name: Enter the booking_id for flight data
+  df_param_type: column
+  display_name: Enter the booking_id for flight data
+  description: Enter the booking_id for flight data
+  user_input_required: true
+- param_name: Enter the origin column of flight data
+  df_param_type: column
+  display_name: Enter the origin column of flight data
+  description: Enter the origin column of flight data
+  default_value: origin
+  user_input_required: true
+- param_name: Product table parameter
+  df_param_type: string
+  display_name: Product table parameter
+  description: Product table parameter
+  single_select_options:
+  - availingFreeReschedule
+  - availingFreeCancellation
+  user_input_required: true
+- param_name: Enter the claim amount column
+  df_param_type: column
+  display_name: Enter the claim amount column
+  description: Enter the claim amount column
+  user_input_required: true
+- param_name: Enter the premium amount column
+  df_param_type: column
+  display_name: Enter the premium amount column
+  description: Enter the premium amount column
+  user_input_required: true
+- param_name: Enter the grouping index
+  df_param_type: column
+  display_name: Enter the grouping index
+  description: Enter the grouping index
+  user_input_required: true
+- param_name: Enter the end date
+  df_param_type: string
+  display_name: Enter the end date
+  description: Enter the end date
+  default_value: '2022-09-17'
+  user_input_required: true
+description: This flow create the attachment rate report

@@ -1,1 +1,1 @@
-SELECT {dimension},{result} FROM {table_name}
+SELECT {dimension},"{result}" FROM {table_name}
