@@ -1,0 +1,18 @@
+unique_name: timestamp_to_datetime
+action_reference: timestamp_to_datetime
+display_name: timestamp_to_datetime
+state: draft
+parameters:
+- param_name: datetime_column
+  df_param_type: column
+  display_name: Enter the column name of converted date time stamp
+  user_input_required: true
+- param_name: table_name
+  df_param_type: table
+  display_name: Enter the source table name
+  user_input_required: true
+- param_name: timestamp_column
+  df_param_type: column
+  display_name: Enter the column name that has timestamp
+  user_input_required: true
+source_type: df_sql
