@@ -1,0 +1,5 @@
+name: Ixigo_Flights_PnL
+version: 0.1
+display_name: Ixigo Flights PnL
+description: PnL report for Reschedule and Free Cancellation for Flights
+state: draft

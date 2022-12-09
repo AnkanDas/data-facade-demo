@@ -1,0 +1,70 @@
+unique_name: PnL Report Generation
+flow_actions:
+- action_reference: timestamp_to_datetime
+  parameters:
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for created column
+  - param_name: table_name
+    global_parameter: Enter refund details table
+  - param_name: timestamp_column
+    global_parameter: Enter time stamp column named Created
+  display_name: timestamp_to_datetime
+  stage_name: Refund Details _Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for created column
+  - param_name: df
+    source_action: timestamp_to_datetime-0
+  - param_name: column_to_remove_name
+    global_parameter: Enter time stamp column named Created
+  display_name: DropColumnAndRename
+  stage_name: Refund Details _Timestamp to Datetime
+- action_reference: timestamp_to_datetime
+  parameters:
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for updated column
+  - param_name: table_name
+    source_action: DropColumnAndRename-1
+  - param_name: timestamp_column
+    global_parameter: Enter the time stamp column named Updated
+  display_name: timestamp_to_datetime
+  stage_name: Refund Details _Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for updated column
+  - param_name: df
+    source_action: timestamp_to_datetime-2
+  - param_name: column_to_remove_name
+    global_parameter: Enter the time stamp column named Updated
+  display_name: DropColumnAndRename
+  stage_name: Refund Details _Timestamp to Datetime
+display_name: PnL Report Generation
+parameters:
+- param_name: Enter refund details table
+  df_param_type: table
+  display_name: Enter refund details table
+  default_value: fdwh_flight_refund_details_snapshot
+  user_input_required: true
+- param_name: Enter new date time column name for created column
+  df_param_type: column
+  display_name: Enter new date time column name for created column
+  default_value: created_date
+  user_input_required: true
+- param_name: Enter new date time column name for updated column
+  df_param_type: column
+  display_name: Enter new date time column name for updated column
+  default_value: updated_date
+  user_input_required: true
+- param_name: Enter the time stamp column named Updated
+  df_param_type: column
+  display_name: Enter the time stamp column named Updated
+  default_value: updated
+  user_input_required: true
+- param_name: Enter time stamp column named Created
+  df_param_type: column
+  display_name: Enter time stamp column named Created
+  default_value: created
+  user_input_required: true
+description: ''
