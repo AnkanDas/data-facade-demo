@@ -186,13 +186,13 @@ parameters:
   description: Enter internal cancellation details table
   default_value: fdwh_flight_internal_cancellation_detail_snapshot
   user_input_required: true
-  - param_name: Enter freeCancellationPolicy details table
+- param_name: Enter freeCancellationPolicy details table
   df_param_type: table
   display_name: Enter freeCancellationPolicy details table
   description: Enter freeCancellationPolicy details table
   default_value: fdwh_freeCancellationPolicy_snapshot
   user_input_required: true
-  - param_name: Enter freeReschedulePolicy details table
+- param_name: Enter freeReschedulePolicy details table
   df_param_type: table
   display_name: Enter freeReschedulePolicy details table
   description: Enter freeReschedulePolicy details table
