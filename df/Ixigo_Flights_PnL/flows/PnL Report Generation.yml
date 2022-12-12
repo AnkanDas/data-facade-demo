@@ -45,7 +45,7 @@ flow_actions:
   - param_name: datetime_column
     global_parameter: Enter new date time column name for created column
   - param_name: table_name
-    global_parameter: Enter refund details table
+    global_parameter: Enter internal cancellation details table
   - param_name: timestamp_column
     global_parameter: Enter time stamp column named Created
   display_name: Convert Created Column to Date Time for Int cancellation Data
