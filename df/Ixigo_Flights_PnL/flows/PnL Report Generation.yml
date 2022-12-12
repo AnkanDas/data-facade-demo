@@ -128,7 +128,7 @@ flow_actions:
   - param_name: datetime_column
     global_parameter: Enter new date time column name for created column
   - param_name: table_name
-    global_parameter: Enter refund details table
+    global_parameter: Enter freeReschedulePolicy details table
   - param_name: timestamp_column
     global_parameter: Enter time stamp column named Created
   display_name: Convert Created Column to Date Time for freeReschedulePolicyData
@@ -183,6 +183,18 @@ parameters:
   display_name: Enter refund details table
   description: Enter refund details table
   default_value: fdwh_flight_refund_details_snapshot
+  user_input_required: true
+  - param_name: Enter freeCancellationPolicy details table
+  df_param_type: table
+  display_name: Enter freeCancellationPolicy details table
+  description: Enter freeCancellationPolicy details table
+  default_value: fdwh_freeCancellationPolicy_snapshot
+  user_input_required: true
+  - param_name: Enter freeReschedulePolicy details table
+  df_param_type: table
+  display_name: Enter freeReschedulePolicy details table
+  description: Enter freeReschedulePolicy details table
+  default_value: fdwh_freeReschedulePolicy_snapshot
   user_input_required: true
 - param_name: Enter time stamp column named Created
   df_param_type: column
