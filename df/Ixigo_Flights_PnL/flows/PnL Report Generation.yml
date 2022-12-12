@@ -83,108 +83,102 @@ flow_actions:
 - action_reference: timestamp_to_datetime
   parameters:
   - param_name: datetime_column
-    global_parameter: Enter new date time column name for created column
+    global_parameter: Enter new date time column name for created_at column
   - param_name: table_name
     global_parameter: Enter freeCancellationPolicy details table
   - param_name: timestamp_column
-    global_parameter: Enter time stamp column named Created
+    global_parameter: Enter time stamp column named created_at
   display_name: Convert Created Column to Date Time for freeCancellationPolicy Data
   stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
 - action_reference: DropColumnAndRename
   parameters:
   - param_name: column_to_be_renamed
-    global_parameter: Enter new date time column name for created column
+    global_parameter: Enter new date time column name for created_at column
   - param_name: df
     source_action: timestamp_to_datetime-0
   - param_name: column_to_remove_name
-    global_parameter: Enter time stamp column named Created
+    global_parameter: Enter time stamp column named created_at
   display_name: Drop Old Created Column
   stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
 - action_reference: timestamp_to_datetime
   parameters:
   - param_name: datetime_column
-    global_parameter: Enter new date time column name for updated column
+    global_parameter: Enter new date time column name for updated_at column
   - param_name: table_name
     source_action: DropColumnAndRename-1
   - param_name: timestamp_column
-    global_parameter: Enter the time stamp column named Updated
+    global_parameter: Enter the time stamp column named updated_at
   display_name: Convert Updated Column to Date Time for freeCancellationPolicy Data
   stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
 - action_reference: DropColumnAndRename
   parameters:
   - param_name: column_to_be_renamed
-    global_parameter: Enter new date time column name for updated column
+    global_parameter: Enter new date time column name for updated_at column
   - param_name: df
     source_action: timestamp_to_datetime-2
   - param_name: column_to_remove_name
-    global_parameter: Enter the time stamp column named Updated
+    global_parameter: Enter the time stamp column named updated_at
   display_name: Drop Old Updated Column
   stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
 - action_reference: timestamp_to_datetime
   parameters:
   - param_name: datetime_column
-    global_parameter: Enter new date time column name for created column
+    global_parameter: Enter new date time column name for created_at column
   - param_name: table_name
     global_parameter: Enter freeReschedulePolicy details table
   - param_name: timestamp_column
-    global_parameter: Enter time stamp column named Created
+    global_parameter: Enter time stamp column named created_at
   display_name: Convert Created Column to Date Time for freeReschedulePolicyData
   stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
 - action_reference: DropColumnAndRename
   parameters:
   - param_name: column_to_be_renamed
-    global_parameter: Enter new date time column name for created column
+    global_parameter: Enter new date time column name for created_at column
   - param_name: df
     source_action: timestamp_to_datetime-0
   - param_name: column_to_remove_name
-    global_parameter: Enter time stamp column named Created
+    global_parameter: Enter time stamp column named created_at
   display_name: Drop Old Created Column
   stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
 - action_reference: timestamp_to_datetime
   parameters:
   - param_name: datetime_column
-    global_parameter: Enter new date time column name for updated column
+    global_parameter: Enter new date time column name for updated_at column
   - param_name: table_name
     source_action: DropColumnAndRename-1
   - param_name: timestamp_column
-    global_parameter: Enter the time stamp column named Updated
+    global_parameter: Enter the time stamp column named updated_at
   display_name: Convert Updated Column to Date Time for freeReschedulePolicy Data
   stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
 - action_reference: DropColumnAndRename
   parameters:
   - param_name: column_to_be_renamed
-    global_parameter: Enter new date time column name for updated column
+    global_parameter: Enter new date time column name for updated_at column
   - param_name: df
     source_action: timestamp_to_datetime-2
   - param_name: column_to_remove_name
-    global_parameter: Enter the time stamp column named Updated
+    global_parameter: Enter the time stamp column named updated_at
   display_name: Drop Old Updated Column
   stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
 display_name: PnL Report Generation
 parameters:
-- param_name: Enter new date time column name for created column
+- param_name: Enter time stamp column named Created
   df_param_type: column
-  display_name: Enter new date time column name for created column
-  description: Enter new date time column name for created column
-  default_value: created_date
+  display_name: Enter time stamp column named Created
+  description: Enter time stamp column named Created
+  default_value: created
+  user_input_required: true
+- param_name: Enter the time stamp column named Updated
+  df_param_type: column
+  display_name: Enter the time stamp column named Updated
+  description: Enter the time stamp column named Updated
+  default_value: updated
   user_input_required: true
 - param_name: Enter new date time column name for updated column
   df_param_type: column
   display_name: Enter new date time column name for updated column
   description: Enter new date time column name for updated column
   default_value: updated_date
-  user_input_required: true
-- param_name: Enter refund details table
-  df_param_type: table
-  display_name: Enter refund details table
-  description: Enter refund details table
-  default_value: fdwh_flight_refund_details_snapshot
-  user_input_required: true
-- param_name: Enter internal cancellation details table
-  df_param_type: table
-  display_name: Enter internal cancellation details table
-  description: Enter internal cancellation details table
-  default_value: fdwh_flight_internal_cancellation_detail_snapshot
   user_input_required: true
 - param_name: Enter freeCancellationPolicy details table
   df_param_type: table
@@ -198,16 +192,38 @@ parameters:
   description: Enter freeReschedulePolicy details table
   default_value: fdwh_freeReschedulePolicy_snapshot
   user_input_required: true
-- param_name: Enter time stamp column named Created
-  df_param_type: column
-  display_name: Enter time stamp column named Created
-  description: Enter time stamp column named Created
-  default_value: created
+- param_name: Enter internal cancellation details table
+  df_param_type: table
+  display_name: Enter internal cancellation details table
+  description: Enter internal cancellation details table
+  default_value: fdwh_flight_internal_cancellation_detail_snapshot
   user_input_required: true
-- param_name: Enter the time stamp column named Updated
+- param_name: Enter new date time column name for created column
   df_param_type: column
-  display_name: Enter the time stamp column named Updated
-  description: Enter the time stamp column named Updated
-  default_value: updated
+  display_name: Enter new date time column name for created column
+  description: Enter new date time column name for created column
+  default_value: created_date
+  user_input_required: true
+- param_name: Enter refund details table
+  df_param_type: table
+  display_name: Enter refund details table
+  description: Enter refund details table
+  default_value: fdwh_flight_refund_details_snapshot
+  user_input_required: true
+- param_name: Enter time stamp column named created_at
+  df_param_type: column
+  display_name: Enter time stamp column named created_at
+  user_input_required: true
+- param_name: Enter new date time column name for created_at column
+  df_param_type: column
+  display_name: Enter new date time column name for created_at column
+  user_input_required: true
+- param_name: Enter the time stamp column named updated_at
+  df_param_type: column
+  display_name: Enter the time stamp column named updated_at
+  user_input_required: true
+- param_name: Enter new date time column name for updated_at column
+  df_param_type: column
+  display_name: Enter new date time column name for updated_at column
   user_input_required: true
 description: ''
