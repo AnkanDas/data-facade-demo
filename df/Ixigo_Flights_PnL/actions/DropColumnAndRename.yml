@@ -1,18 +1,22 @@
 unique_name: DropColumnAndRename
 action_reference: DropColumnAndRename
 display_name: DropColumnAndRename
+description: DropColumnAndRename
 state: draft
 parameters:
 - param_name: column_to_be_renamed
   df_param_type: column
   display_name: Enter the column that will be renamed to the name of dropped column
+  description: Enter the column that will be renamed to the name of dropped column
   user_input_required: true
 - param_name: df
   df_param_type: table
   display_name: Enter source table name
+  description: Enter source table name
   user_input_required: true
 - param_name: column_to_remove_name
   df_param_type: column
   display_name: Select the column that needs to be dropped
+  description: Select the column that needs to be dropped
   user_input_required: true
 source_type: python
