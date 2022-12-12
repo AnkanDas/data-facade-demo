@@ -41,6 +41,7 @@ flow_actions:
   display_name: Drop Old Updated Column
   stage_name: Clean Up Refund Details Timestamp to Datetime
 - action_reference: timestamp_to_datetime
+  
   parameters:
   - param_name: datetime_column
     global_parameter: Enter new date time column name for created column
@@ -80,6 +81,89 @@ flow_actions:
     global_parameter: Enter the time stamp column named Updated
   display_name: Drop Old Updated Column
   stage_name: Clean Up Int cancellation Details Timestamp to Datetime
+
+- action_reference: timestamp_to_datetime
+  parameters:
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for created column
+  - param_name: table_name
+    global_parameter: Enter freeCancellationPolicy details table
+  - param_name: timestamp_column
+    global_parameter: Enter time stamp column named Created
+  display_name: Convert Created Column to Date Time for freeCancellationPolicy Data
+  stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for created column
+  - param_name: df
+    source_action: timestamp_to_datetime-0
+  - param_name: column_to_remove_name
+    global_parameter: Enter time stamp column named Created
+  display_name: Drop Old Created Column
+  stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
+- action_reference: timestamp_to_datetime
+  parameters:
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for updated column
+  - param_name: table_name
+    source_action: DropColumnAndRename-1
+  - param_name: timestamp_column
+    global_parameter: Enter the time stamp column named Updated
+  display_name: Convert Updated Column to Date Time for freeCancellationPolicy Data
+  stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for updated column
+  - param_name: df
+    source_action: timestamp_to_datetime-2
+  - param_name: column_to_remove_name
+    global_parameter: Enter the time stamp column named Updated
+  display_name: Drop Old Updated Column
+  stage_name: Clean Up freeCancellationPolicy Details Timestamp to Datetime
+- action_reference: timestamp_to_datetime
+  
+  parameters:
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for created column
+  - param_name: table_name
+    global_parameter: Enter refund details table
+  - param_name: timestamp_column
+    global_parameter: Enter time stamp column named Created
+  display_name: Convert Created Column to Date Time for freeReschedulePolicyData
+  stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for created column
+  - param_name: df
+    source_action: timestamp_to_datetime-0
+  - param_name: column_to_remove_name
+    global_parameter: Enter time stamp column named Created
+  display_name: Drop Old Created Column
+  stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
+- action_reference: timestamp_to_datetime
+  parameters:
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for updated column
+  - param_name: table_name
+    source_action: DropColumnAndRename-1
+  - param_name: timestamp_column
+    global_parameter: Enter the time stamp column named Updated
+  display_name: Convert Updated Column to Date Time for freeReschedulePolicy Data
+  stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for updated column
+  - param_name: df
+    source_action: timestamp_to_datetime-2
+  - param_name: column_to_remove_name
+    global_parameter: Enter the time stamp column named Updated
+  display_name: Drop Old Updated Column
+  stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
+
 display_name: PnL Report Generation
 parameters:
 - param_name: Enter new date time column name for created column
