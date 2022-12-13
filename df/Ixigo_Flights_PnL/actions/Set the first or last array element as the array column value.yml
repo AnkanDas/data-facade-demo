@@ -1,0 +1,26 @@
+unique_name: Set the first or last array element as the array column value
+action_reference: Set the first or last array element as the array column value
+display_name: Set the first or last array element as the array column value
+description: 'It cleans up and format array type columns '
+state: draft
+parameters:
+- param_name: input_table
+  df_param_type: table
+  display_name: Input Table
+  description: Input Raw Table
+  user_input_required: true
+- param_name: array_column
+  df_param_type: column_names_list
+  display_name: Array Columns
+  description: Array Column
+  user_input_required: true
+- param_name: position
+  df_param_type: int
+  display_name: position
+  description: Array Postion
+  default_value: '0'
+  single_select_options:
+  - '0'
+  - '-1'
+  user_input_required: true
+source_type: python

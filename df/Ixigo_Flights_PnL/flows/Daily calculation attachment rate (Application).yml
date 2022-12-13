@@ -1,0 +1,130 @@
+unique_name: Daily calculation attachment rate (Application)
+flow_actions:
+- action_reference: Df_join_operation
+  parameters:
+  - param_name: join_type
+    default_value: left
+  - param_name: df2
+    global_parameter: Enter flights data table
+  - param_name: df2_new_col_add
+    global_parameter: Enter the origin column of flight data
+  - param_name: df1_key
+    global_parameter: Enter the booking_id for product data
+  - param_name: product_param
+    global_parameter: Product table parameter
+  - param_name: df2_key
+    global_parameter: Enter the booking_id for flight data
+  - param_name: df1
+    global_parameter: Enter products data table
+  display_name: Df_join_operation
+  stage_name: Stage 1
+- action_reference: Get_journey_type
+  parameters:
+  - param_name: data
+    source_action: Df_join_operation-0
+  - param_name: created_column_name
+    default_value: journeyType
+  - param_name: compare_column
+    global_parameter: Enter the origin column of flight data
+  display_name: Get_journey_type
+  stage_name: Stage 1
+- action_reference: Group_for_amount
+  parameters:
+  - param_name: premium_amount
+    global_parameter: premium_amount
+  - param_name: data
+    source_action: Get_journey_type-1
+  - param_name: trip_id
+    global_parameter: Enter the booking_id for product data
+  - param_name: journey_info_column
+    default_value: journeyType
+  - param_name: claim_amount
+    global_parameter: claim_amount
+  display_name: Group_for_amount
+  stage_name: Stage 1
+- action_reference: Join with different keys
+  parameters:
+  - param_name: table1
+    global_parameter: Enter flights data table (SQL)
+  - param_name: table2
+    source_action: Group_for_amount-2
+  - param_name: keycolumn1
+    global_parameter: Enter the booking_id for flight data
+  - param_name: keycolumn2
+    global_parameter: Enter the booking_id for product data
+  display_name: Join with different keys
+  stage_name: Stage 2
+- action_reference: Get daily attachment rate report
+  parameters:
+  - param_name: data
+    source_action: Join with different keys-3
+  - param_name: group_column
+    global_parameter: Enter grouping columns
+  - param_name: product_param
+    default_value: availingFreeReschedule
+  display_name: Get daily attachment rate report
+  stage_name: Stage 2
+display_name: Daily calculation attachment rate (Application)
+parameters:
+- param_name: Enter products data table
+  df_param_type: table
+  display_name: Enter products data table
+  description: Enter products data table
+  default_value: flights_reschedule_data
+  user_input_required: true
+- param_name: claim_amount
+  df_param_type: column
+  display_name: claim_amount
+  description: claim_amount
+  default_value: claimedAmount
+  user_input_required: true
+- param_name: Enter the booking_id for product data
+  df_param_type: column
+  display_name: Enter the booking_id for product data
+  description: Enter the booking_id for product data
+  default_value: tripId
+  user_input_required: true
+- param_name: Enter the booking_id for flight data
+  df_param_type: column
+  display_name: Enter the booking_id for flight data
+  description: Enter the booking_id for flight data
+  default_value: bookingId
+  user_input_required: true
+- param_name: Enter flights data table
+  df_param_type: table
+  display_name: Enter flights data table
+  description: Enter flights data table
+  default_value: flights_data
+  user_input_required: true
+- param_name: premium_amount
+  df_param_type: column
+  display_name: premium_amount
+  description: premium_amount
+  default_value: premiumAmount
+  user_input_required: true
+- param_name: Enter grouping columns
+  df_param_type: column_names_list
+  display_name: Enter grouping columns
+  user_input_required: true
+- param_name: Enter the origin column of flight data
+  df_param_type: column
+  display_name: Enter the origin column of flight data
+  description: Enter the origin column of flight data
+  default_value: origin
+  user_input_required: true
+- param_name: Enter flights data table (SQL)
+  df_param_type: table
+  display_name: Enter flights data table (SQL)
+  description: Enter flights data table (SQL)
+  default_value: flights_data
+  user_input_required: true
+- param_name: Product table parameter
+  df_param_type: string
+  display_name: Product table parameter
+  description: Product table parameter
+  default_value: availingFreeReschedule
+  single_select_options:
+  - availingFreeReschedule
+  - availingFreeCancellation
+  user_input_required: true
+description: This flow create the attachment rate report

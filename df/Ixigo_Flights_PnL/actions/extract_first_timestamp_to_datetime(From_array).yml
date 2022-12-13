@@ -1,0 +1,22 @@
+unique_name: extract_first_timestamp_to_datetime(From_array)
+action_reference: extract_first_timestamp_to_datetime(From_array)
+display_name: extract_first_timestamp_to_datetime(From_array)
+description: ''
+state: draft
+parameters:
+- param_name: timestamp_column
+  df_param_type: column
+  display_name: timestamp_column
+  description: Enter the column name that has timestamp
+  user_input_required: true
+- param_name: datetime_column
+  df_param_type: column
+  display_name: datetime_column
+  description: Enter the column name of converted date time stamp
+  user_input_required: true
+- param_name: table_name
+  df_param_type: table
+  display_name: table_name
+  description: Enter the source table name
+  user_input_required: true
+source_type: df_sql

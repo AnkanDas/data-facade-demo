@@ -160,19 +160,85 @@ flow_actions:
     global_parameter: Enter the time stamp column named updated_at
   display_name: Drop Old Updated Column
   stage_name: Clean Up freeReschedulePolicy Details Timestamp to Datetime
+- action_reference: timestamp_to_datetime
+  parameters:
+  - param_name: timestamp_column
+    global_parameter: Enter time stamp column named created_at
+  - param_name: datetime_column
+    global_parameter: Enter new date time column name for created_at column
+  - param_name: table_name
+    global_parameter: Enter flights booking details table
+  display_name: Convert Created_at Column to Date Time for flightsBooking details
+  stage_name: Clean Up Flights booking details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter new date time column name for created_at column
+  - param_name: df
+    source_action: timestamp_to_datetime-16
+  - param_name: column_to_remove_name
+    global_parameter: Enter time stamp column named created_at
+  display_name: Drop old created_at column
+  stage_name: Clean Up Flights booking details Timestamp to Datetime
+- action_reference: extract_first_timestamp_to_datetime(From_array)
+  parameters:
+  - param_name: timestamp_column
+    global_parameter: Enter time stamp array column named onward_segments_scheduled_departures_array
+  - param_name: datetime_column
+    global_parameter: Enter date time column name for new onward_departure
+  - param_name: table_name
+    source_action: DropColumnAndRename-17
+  display_name: Extract & convert onward_segments_scheduled_departures_array
+  stage_name: Clean Up Flights booking details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter date time column name for new onward_departure
+  - param_name: df
+    source_action: extract_first_timestamp_to_datetime(From_array)-18
+  - param_name: column_to_remove_name
+    global_parameter: Enter time stamp array column named onward_segments_scheduled_departures_array
+  display_name: Drop onward_segments_scheduled_departures_array
+  stage_name: Clean Up Flights booking details Timestamp to Datetime
+- action_reference: extract_first_timestamp_to_datetime(From_array)
+  parameters:
+  - param_name: timestamp_column
+    global_parameter: Enter time stamp array column named return_segments_scheduled_departures_array
+  - param_name: datetime_column
+    global_parameter: Enter date time column name for new return_departure
+  - param_name: table_name
+    source_action: DropColumnAndRename-19
+  display_name: Extract &convert return_segments_scheduled_departures_array
+  stage_name: Clean Up Flights booking details Timestamp to Datetime
+- action_reference: DropColumnAndRename
+  parameters:
+  - param_name: column_to_be_renamed
+    global_parameter: Enter date time column name for new return_departure
+  - param_name: df
+    source_action: extract_first_timestamp_to_datetime(From_array)-20
+  - param_name: column_to_remove_name
+    global_parameter: Enter time stamp array column named return_segments_scheduled_departures_array
+  display_name: Drop return_segments_scheduled_departures_array
+  stage_name: Clean Up Flights booking details Timestamp to Datetime
 display_name: PnL Report Generation
 parameters:
-- param_name: Enter time stamp column named Created
-  df_param_type: column
-  display_name: Enter time stamp column named Created
-  description: Enter time stamp column named Created
-  default_value: created
-  user_input_required: true
 - param_name: Enter the time stamp column named Updated
   df_param_type: column
   display_name: Enter the time stamp column named Updated
   description: Enter the time stamp column named Updated
   default_value: updated
+  user_input_required: true
+- param_name: Enter freeReschedulePolicy details table
+  df_param_type: table
+  display_name: Enter freeReschedulePolicy details table
+  description: Enter freeReschedulePolicy details table
+  default_value: fdwh_freeReschedulePolicy_snapshot
+  user_input_required: true
+- param_name: Enter time stamp column named Created
+  df_param_type: column
+  display_name: Enter time stamp column named Created
+  description: Enter time stamp column named Created
+  default_value: created
   user_input_required: true
 - param_name: Enter new date time column name for updated column
   df_param_type: column
@@ -186,17 +252,33 @@ parameters:
   description: Enter freeCancellationPolicy details table
   default_value: fdwh_freeCancellationPolicy_snapshot
   user_input_required: true
-- param_name: Enter freeReschedulePolicy details table
+- param_name: Enter flights booking details table
   df_param_type: table
-  display_name: Enter freeReschedulePolicy details table
-  description: Enter freeReschedulePolicy details table
-  default_value: fdwh_freeReschedulePolicy_snapshot
+  display_name: Enter flights booking details table
   user_input_required: true
-- param_name: Enter internal cancellation details table
+- param_name: Enter time stamp array column named onward_segments_scheduled_departures_array
+  df_param_type: column
+  display_name: Enter time stamp array column named onward_segments_scheduled_departures_array
+  user_input_required: true
+- param_name: datetime_column
+  df_param_type: column
+  display_name: datetime_column
+  user_input_required: true
+- param_name: column_to_be_renamed
+  df_param_type: column
+  display_name: column_to_be_renamed
+  user_input_required: true
+- param_name: Enter the time stamp column named updated_at
+  df_param_type: column
+  display_name: Enter the time stamp column named updated_at
+  user_input_required: true
+- param_name: table_name
   df_param_type: table
-  display_name: Enter internal cancellation details table
-  description: Enter internal cancellation details table
-  default_value: fdwh_flight_internal_cancellation_detail_snapshot
+  display_name: table_name
+  user_input_required: true
+- param_name: df
+  df_param_type: table
+  display_name: df
   user_input_required: true
 - param_name: Enter new date time column name for created column
   df_param_type: column
@@ -204,26 +286,48 @@ parameters:
   description: Enter new date time column name for created column
   default_value: created_date
   user_input_required: true
+- param_name: Enter new date time column name for created_at column
+  df_param_type: column
+  display_name: Enter new date time column name for created_at column
+  user_input_required: true
+- param_name: Enter new date time column name for updated_at column
+  df_param_type: column
+  display_name: Enter new date time column name for updated_at column
+  user_input_required: true
+- param_name: Enter internal cancellation details table
+  df_param_type: table
+  display_name: Enter internal cancellation details table
+  description: Enter internal cancellation details table
+  default_value: fdwh_flight_internal_cancellation_detail_snapshot
+  user_input_required: true
+- param_name: Enter time stamp column named created_at
+  df_param_type: column
+  display_name: Enter time stamp column named created_at
+  user_input_required: true
+- param_name: timestamp_column
+  df_param_type: column
+  display_name: timestamp_column
+  user_input_required: true
 - param_name: Enter refund details table
   df_param_type: table
   display_name: Enter refund details table
   description: Enter refund details table
   default_value: fdwh_flight_refund_details_snapshot
   user_input_required: true
-- param_name: Enter time stamp column named created_at
+- param_name: column_to_remove_name
   df_param_type: column
-  display_name: Enter time stamp column named created_at
+  display_name: column_to_remove_name
   user_input_required: true
-- param_name: Enter new date time column name for created_at column
+- param_name: Enter date time column name for new return_departure
   df_param_type: column
-  display_name: Enter new date time column name for created_at column
+  display_name: Enter date time column name for new return_departure
   user_input_required: true
-- param_name: Enter the time stamp column named updated_at
+- param_name: Enter date time column name for new onward_departure
   df_param_type: column
-  display_name: Enter the time stamp column named updated_at
+  display_name: Enter date time column name for new onward_departure
   user_input_required: true
-- param_name: Enter new date time column name for updated_at column
+- param_name: Enter time stamp array column named return_segments_scheduled_departures_array
   df_param_type: column
-  display_name: Enter new date time column name for updated_at column
+  display_name: Enter time stamp array column named return_segments_scheduled_departures_array
   user_input_required: true
 description: ''

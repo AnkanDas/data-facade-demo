@@ -1,0 +1,22 @@
+unique_name: Convert Timestamp Columns to Date Time Columns
+action_reference: Convert Timestamp Columns to Date Time Columns
+display_name: Convert Timestamp Columns to Date Time Columns
+state: draft
+parameters:
+- param_name: input_table
+  df_param_type: table
+  display_name: Input Table
+  description: Input Raw Table
+  user_input_required: true
+- param_name: timestamp_column
+  df_param_type: column_names_list
+  display_name: Timestamp Column
+  description: Timestamp Column
+  user_input_required: true
+- param_name: unit
+  df_param_type: string
+  display_name: Unit of timestamp
+  description: Unit of timestamp
+  default_value: ms
+  user_input_required: true
+source_type: python
