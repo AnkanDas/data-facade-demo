@@ -1,0 +1,154 @@
+unique_name: P&L Calculations
+flow_actions:
+- action_reference: Convert Timestamp Columns to Date Time Columns
+  parameters:
+  - param_name: input_table
+    global_parameter: Choose freeReschedulePolicy table
+  - param_name: timestamp_column
+    global_parameter: Choose the timestamp columns for freeReschedulePolicy
+  - param_name: unit
+    default_value: ms
+  display_name: Convert Timestamp Columns for freeReschedulePolicy
+  stage_name: Timestamp conversion for all tables
+- action_reference: Convert Timestamp Columns to Date Time Columns
+  parameters:
+  - param_name: input_table
+    global_parameter: Choose freeCancellationPolicy table
+  - param_name: timestamp_column
+    global_parameter: Choose the timestamp columns for freeCancellationPolicy
+  - param_name: unit
+    default_value: ms
+  display_name: Convert Timestamp Columns for freeCancellationPolicy
+  stage_name: Timestamp conversion for all tables
+- action_reference: Convert Timestamp Columns to Date Time Columns
+  parameters:
+  - param_name: input_table
+    global_parameter: Choose flight_refund_details table
+  - param_name: timestamp_column
+    global_parameter: Choose the timestamp columns for flight_refund_details
+  - param_name: unit
+    default_value: ms
+  display_name: Convert Timestamp Columns for flight_refund_details
+  stage_name: Timestamp conversion for all tables
+- action_reference: Convert Timestamp Columns to Date Time Columns
+  parameters:
+  - param_name: input_table
+    global_parameter: Choose internal_cancellation_details table
+  - param_name: timestamp_column
+    global_parameter: Choose the timestamp columns for internal_cancellation_details
+  - param_name: unit
+    default_value: ms
+  display_name: Convert Timestamp Columns for internal_cancellation_details
+  stage_name: Timestamp conversion for all tables
+- action_reference: Convert Timestamp Columns to Date Time Columns
+  parameters:
+  - param_name: input_table
+    global_parameter: Choose flight_booking_details table
+  - param_name: timestamp_column
+    global_parameter: Choose the timestamp columns for flight_booking_details
+  - param_name: unit
+    default_value: ms
+  display_name: Convert Timestamp Columns for flight_booking_details (created_at)
+  stage_name: Timestamp conversion for all tables
+- action_reference: Set the first or last array element as the array column value
+  parameters:
+  - param_name: array_column
+    global_parameter: Choose onward and return departure array columns
+  - param_name: position
+    default_value: '0'
+  - param_name: input_table
+    source_action: Convert Timestamp Columns to Date Time Columns-4
+  display_name: Set the first or last array element as the array column value for
+    flight_booking_details
+  stage_name: Timestamp conversion for all tables
+- action_reference: Convert Timestamp Columns to Date Time Columns
+  parameters:
+  - param_name: input_table
+    source_action: Set the first or last array element as the array column value-5
+  - param_name: timestamp_column
+    global_parameter: Choose onward and return departure array columns
+  - param_name: unit
+    default_value: ms
+  display_name: Convert Timestamp Columns for flight_booking_details (onward & return
+    departures)
+  stage_name: Timestamp conversion for all tables
+- action_reference: Set the first or last array element as the array column value
+  parameters:
+  - param_name: input_table
+    source_action: Convert Timestamp Columns to Date Time Columns-6
+  - param_name: array_column
+    global_parameter: Choose the column onward_segments_origin_cities_array, onward_segments_airline_names_array,
+      return_segments_airline_names_array
+  - param_name: position
+    default_value: '0'
+  display_name: Set the first element of  the onward_segments_origin_cities_array
+    as column value
+  stage_name: Flight booking table transformations
+- action_reference: Set the first or last array element as the array column value
+  parameters:
+  - param_name: input_table
+    source_action: Set the first or last array element as the array column value-7
+  - param_name: array_column
+    global_parameter: Choose the column onward_segments_destination_cities_array
+  - param_name: position
+    default_value: '-1'
+  display_name: Set the Last element of  the onward_segments_destination_cities_array
+    as column value
+  stage_name: Flight booking table transformations
+display_name: P&L Calculations
+parameters:
+- param_name: Choose freeCancellationPolicy table
+  df_param_type: table
+  display_name: Choose freeCancellationPolicy table
+  user_input_required: true
+- param_name: Choose the timestamp columns for flight_booking_details
+  df_param_type: column_names_list
+  display_name: Choose the timestamp columns for flight_booking_details
+  user_input_required: true
+- param_name: Choose the column onward_segments_origin_cities_array, onward_segments_airline_names_array,
+    return_segments_airline_names_array
+  df_param_type: column_names_list
+  display_name: Choose the column onward_segments_origin_cities_array, onward_segments_airline_names_array,
+    return_segments_airline_names_array
+  user_input_required: true
+- param_name: Choose freeReschedulePolicy table
+  df_param_type: table
+  display_name: Choose freeReschedulePolicy table
+  user_input_required: true
+- param_name: Choose the timestamp columns for freeCancellationPolicy
+  df_param_type: column_names_list
+  display_name: Choose the timestamp columns for freeCancellationPolicy
+  user_input_required: true
+- param_name: Choose internal_cancellation_details table
+  df_param_type: table
+  display_name: Choose internal_cancellation_details table
+  user_input_required: true
+- param_name: Choose flight_refund_details table
+  df_param_type: table
+  display_name: Choose flight_refund_details table
+  user_input_required: true
+- param_name: Choose the timestamp columns for freeReschedulePolicy
+  df_param_type: column_names_list
+  display_name: Choose the timestamp columns for freeReschedulePolicy
+  user_input_required: true
+- param_name: Choose the timestamp columns for internal_cancellation_details
+  df_param_type: column_names_list
+  display_name: Choose the timestamp columns for internal_cancellation_details
+  user_input_required: true
+- param_name: Choose flight_booking_details table
+  df_param_type: table
+  display_name: Choose flight_booking_details table
+  user_input_required: true
+- param_name: Choose onward and return departure array columns
+  df_param_type: column_names_list
+  display_name: Choose onward and return departure array columns
+  user_input_required: true
+- param_name: Choose the timestamp columns for flight_refund_details
+  df_param_type: column_names_list
+  display_name: Choose the timestamp columns for flight_refund_details
+  user_input_required: true
+- param_name: Choose the column onward_segments_destination_cities_array
+  df_param_type: column_names_list
+  display_name: Choose the column onward_segments_destination_cities_array
+  user_input_required: true
+description: ''
