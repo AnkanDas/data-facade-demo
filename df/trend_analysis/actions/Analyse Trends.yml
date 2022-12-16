@@ -17,6 +17,10 @@ display_name: Analyse Trends
 description: Analyse trends of your metrics & KPIs
 state: draft
 parameters:
+- param_name: dim_column
+  df_param_type: column
+  display_name: dim_column
+  user_input_required: true
 - param_name: agg_function
   df_param_type: string_no_quotes
   display_name: agg_function
