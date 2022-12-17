@@ -1,10 +1,10 @@
 import pandas as pd
 
-df = df_helper.get_table("input_table", "Input Table", "Input Raw Table","")
+df = df_helper.get_table("input_table", "Input Table", "Input Raw Table")
 
-time_columns = df_helper.get_column("timestamp_column","Timestamp Column", "Timestamp Column", "")
+time_columns = df_helper.get_column("timestamp_column","Timestamp Column", "Timestamp Column")
 
-unit = df_helper.get_string("unit", "Unit of timestamp", "Unit of timestamp", "ms")
+unit = df_helper.get_string("unit", "Unit of timestamp", "Unit of timestamp")
 
 print(time_columns)
 if not isinstance(time_columns, list):

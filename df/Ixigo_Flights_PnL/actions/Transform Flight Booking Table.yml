@@ -1,6 +1,7 @@
 unique_name: Transform Flight Booking Table
 action_reference: Transform Flight Booking Table
 display_name: Transform Flight Booking Table
+description: Transform Flight Booking Table
 state: draft
 parameters:
 - param_name: input_table

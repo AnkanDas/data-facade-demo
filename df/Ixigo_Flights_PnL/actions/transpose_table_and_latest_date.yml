@@ -1,0 +1,21 @@
+unique_name: transpose_table_and_latest_date
+action_reference: transpose_table_and_latest_date
+display_name: transpose_table_and_latest_date
+state: draft
+parameters:
+- param_name: value_column
+  df_param_type: column_names_list
+  display_name: Metric Columns
+  description: Metric Columns
+  user_input_required: true
+- param_name: input_table
+  df_param_type: table
+  display_name: Input Table
+  description: Input Raw Table
+  user_input_required: true
+- param_name: timestamp_column
+  df_param_type: column
+  display_name: Timestamp Column
+  description: Timestamp Column
+  user_input_required: true
+source_type: python

@@ -9,7 +9,7 @@ parameters:
   description: Input Raw Table
   user_input_required: true
 - param_name: timestamp_column
-  df_param_type: column_names_list
+  df_param_type: column
   display_name: Timestamp Column
   description: Timestamp Column
   user_input_required: true
