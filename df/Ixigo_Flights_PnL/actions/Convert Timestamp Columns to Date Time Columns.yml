@@ -1,6 +1,7 @@
 unique_name: Convert Timestamp Columns to Date Time Columns
 action_reference: Convert Timestamp Columns to Date Time Columns
 display_name: Convert Timestamp Columns to Date Time Columns
+description: Convert Timestamp Columns to Date Time Columns
 state: draft
 parameters:
 - param_name: input_table

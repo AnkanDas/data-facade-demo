@@ -1,0 +1,18 @@
+unique_name: Join_with_same_keys
+action_reference: Join_with_same_keys
+display_name: Join_with_same_keys
+state: draft
+parameters:
+- param_name: table1
+  df_param_type: table
+  display_name: table1
+  user_input_required: true
+- param_name: table2
+  df_param_type: table
+  display_name: table2
+  user_input_required: true
+- param_name: keu_column
+  df_param_type: column
+  display_name: keu_column
+  user_input_required: true
+source_type: df_sql

@@ -1,0 +1,97 @@
+unique_name: Booking_date_based_metrics
+flow_actions:
+- action_reference: daily_total_transaction
+  parameters:
+  - param_name: booking_details_table
+    global_parameter: booking_details_table
+  - param_name: timestamp_column
+    default_value: origin
+  display_name: daily_total_transaction
+  stage_name: Stage 1
+- action_reference: Flex_Metrics_on_Booking_Date
+  parameters:
+  - param_name: order_amount_column
+    default_value: pricing__total_fare
+  - param_name: free_reschedule_column
+    default_value: availing_free_reschedule
+  - param_name: booking_details_id
+    default_value: trip_id
+  - param_name: premium_amount_column
+    default_value: premium_amount
+  - param_name: reschedule_policy_table
+    global_parameter: reschedule_policy_table
+    default_value: fdwh_freeReschedulePolicy_snapshot
+  - param_name: timestamp_column
+    default_value: origin
+  - param_name: passanger_id_column
+    default_value: pax_id
+  - param_name: booking_details_table
+    global_parameter: booking_details_table
+    default_value: fdwh_flight_booking_snapshot
+  - param_name: reschedule_policy_id
+    default_value: booking_id
+  display_name: Flex_Metrics_on_Booking_Date
+  stage_name: Stage 1
+- action_reference: Join_with_same_keys
+  parameters:
+  - param_name: table1
+    source_action: daily_total_transaction-0
+  - param_name: table2
+    source_action: Flex_Metrics_on_Booking_Date-1
+  - param_name: keu_column
+    default_value: date_time
+  display_name: Join_with_same_keys
+  stage_name: Stage 1
+- action_reference: metric_attachment_rate
+  parameters:
+  - param_name: table
+    source_action: Join_with_same_keys-2
+  display_name: metric_attachment_rate
+  stage_name: Stage 1
+- action_reference: transpose_table_and_latest_date
+  parameters:
+  - param_name: input_table
+    source_action: metric_attachment_rate-3
+  - param_name: timestamp_column
+    default_value: date_time
+  - param_name: value_column
+    global_parameter: Enter the KPIs
+  display_name: transpose_table_and_latest_date
+  stage_name: Stage 2
+- action_reference: send_email
+  parameters:
+  - param_name: input_table
+    source_action: transpose_table_and_latest_date-4
+  - param_name: email
+    global_parameter: Enter recievers email id
+  display_name: send_email
+  stage_name: Stage 2
+display_name: Booking_date_based_metrics
+parameters:
+- param_name: reschedule_policy_table
+  df_param_type: table
+  display_name: reschedule_policy_table
+  user_input_required: true
+- param_name: Enter recievers email id
+  df_param_type: string
+  display_name: Enter recievers email id
+  user_input_required: true
+- param_name: booking_details_table
+  df_param_type: table
+  display_name: booking_details_table
+  user_input_required: true
+- param_name: Enter the KPIs
+  df_param_type: string
+  display_name: Enter the KPIs
+  multi_select_options:
+  - daily_total_transaction
+  - total_flex_sold
+  - total_passangers
+  - total_order_amount
+  - pax_wise_ATV
+  - total_premium
+  - avg_premium_per_felx
+  - avg_premium_per_passanger
+  - flex_fee_as_percent_of_ATV
+  user_input_required: true
+description: ''

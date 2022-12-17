@@ -1,0 +1,10 @@
+unique_name: metric_attachment_rate
+action_reference: metric_attachment_rate
+display_name: metric_attachment_rate
+state: draft
+parameters:
+- param_name: table
+  df_param_type: table
+  display_name: table
+  user_input_required: true
+source_type: df_sql

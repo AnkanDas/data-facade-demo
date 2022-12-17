@@ -105,6 +105,7 @@ parameters:
 - param_name: Enter grouping columns
   df_param_type: column_names_list
   display_name: Enter grouping columns
+  description: Enter grouping columns
   user_input_required: true
 - param_name: Enter the origin column of flight data
   df_param_type: column
