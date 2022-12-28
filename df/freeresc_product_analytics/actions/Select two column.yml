@@ -1,0 +1,25 @@
+unique_name: Select two column
+action_reference: Select two column
+charts:
+- kind: scatter
+  name: 'Scatter plot showing correlations '
+  expose_data: false
+  options:
+    x: '{column1}'
+    y: '{column2}'
+display_name: Select two column
+state: draft
+parameters:
+- param_name: column1
+  df_param_type: column
+  display_name: column1
+  user_input_required: true
+- param_name: column2
+  df_param_type: column
+  display_name: column2
+  user_input_required: true
+- param_name: master_table
+  df_param_type: table
+  display_name: master_table
+  user_input_required: true
+source_type: df_sql

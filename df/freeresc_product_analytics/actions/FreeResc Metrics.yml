@@ -1,0 +1,42 @@
+unique_name: FreeResc Metrics
+action_reference: FreeResc Metrics
+display_name: FreeResc Metrics
+state: draft
+parameters:
+- param_name: passanger_id_column
+  df_param_type: column
+  display_name: passanger_id_column
+  user_input_required: true
+- param_name: order_amount_column
+  df_param_type: column
+  display_name: order_amount_column
+  user_input_required: true
+- param_name: premium_amount_column
+  df_param_type: column
+  display_name: premium_amount_column
+  user_input_required: true
+- param_name: free_reschedule_column
+  df_param_type: column
+  display_name: free_reschedule_column
+  user_input_required: true
+- param_name: booking_details_table
+  df_param_type: table
+  display_name: booking_details_table
+  user_input_required: true
+- param_name: reschedule_policy_table
+  df_param_type: table
+  display_name: reschedule_policy_table
+  user_input_required: true
+- param_name: timestamp_column
+  df_param_type: column
+  display_name: timestamp_column
+  user_input_required: true
+- param_name: booking_details_id
+  df_param_type: column
+  display_name: booking_details_id
+  user_input_required: true
+- param_name: reschedule_policy_id
+  df_param_type: column
+  display_name: reschedule_policy_id
+  user_input_required: true
+source_type: df_sql

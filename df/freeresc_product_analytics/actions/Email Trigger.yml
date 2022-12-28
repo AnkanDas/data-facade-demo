@@ -1,0 +1,16 @@
+unique_name: Email Trigger
+action_reference: Email Trigger
+display_name: Email Trigger
+state: draft
+parameters:
+- param_name: Input Table
+  df_param_type: table
+  display_name: Input Raw Table
+  description: ''
+  user_input_required: true
+- param_name: Enter Emails
+  df_param_type: string
+  display_name: Enter the emails to get the report
+  description: ''
+  user_input_required: true
+source_type: python
