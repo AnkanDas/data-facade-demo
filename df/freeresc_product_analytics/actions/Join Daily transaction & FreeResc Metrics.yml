@@ -1,18 +1,22 @@
 unique_name: Join Daily transaction & FreeResc Metrics
 action_reference: Join Daily transaction & FreeResc Metrics
 display_name: Join Daily transaction & FreeResc Metrics
+description: Join Daily transaction & FreeResc Metrics
 state: draft
 parameters:
 - param_name: table1
   df_param_type: table
   display_name: table1
+  description: table1
   user_input_required: true
 - param_name: table2
   df_param_type: table
   display_name: table2
+  description: table2
   user_input_required: true
 - param_name: key_column
   df_param_type: column
   display_name: key_column
+  description: key_column
   user_input_required: true
 source_type: df_sql

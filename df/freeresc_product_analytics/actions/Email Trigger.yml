@@ -1,6 +1,7 @@
 unique_name: Email Trigger
 action_reference: Email Trigger
 display_name: Email Trigger
+description: Email Trigger
 state: draft
 parameters:
 - param_name: Input Table
