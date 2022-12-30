@@ -1,10 +1,12 @@
 unique_name: Adoption rate metric
 action_reference: Adoption rate metric
 display_name: Adoption rate metric
+description: Adoption rate metric
 state: draft
 parameters:
 - param_name: table
   df_param_type: table
   display_name: table
+  description: table
   user_input_required: true
 source_type: df_sql

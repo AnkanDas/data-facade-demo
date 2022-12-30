@@ -1,41 +1,45 @@
-unique_name: Adoption Rate Report
+unique_name: Adoption Rate Report By Dimension
 flow_actions:
-- action_reference: Daily total transaction
+- action_reference: Daily total transaction by Dimension
   parameters:
   - param_name: booking_details_table
     global_parameter: booking_details_table
   - param_name: timestamp_column
     global_parameter: timestamp_column
-  display_name: Daily total transaction
+  - param_name: dimension_column
+    global_parameter: dimension_column
+  display_name: Daily total transaction by Dimension
   stage_name: Generate_report
-- action_reference: FreeResc Metrics
+- action_reference: FreeResc Metrics by Dimensions
   parameters:
-  - param_name: booking_details_id
-    global_parameter: booking_details_id
-  - param_name: booking_details_table
-    global_parameter: booking_details_table
+  - param_name: premium_amount_column
+    global_parameter: premium_amount_column
   - param_name: timestamp_column
     global_parameter: timestamp_column
   - param_name: passanger_id_column
     global_parameter: passanger_id_column
-  - param_name: premium_amount_column
-    global_parameter: premium_amount_column
+  - param_name: booking_details_id
+    global_parameter: booking_details_id
   - param_name: reschedule_policy_table
     global_parameter: reschedule_policy_table
-  - param_name: free_reschedule_column
-    global_parameter: free_reschedule_column
+  - param_name: dimension_column
+    global_parameter: dimension_column
+  - param_name: booking_details_table
+    global_parameter: booking_details_table
   - param_name: reschedule_policy_id
     global_parameter: reschedule_policy_id
   - param_name: order_amount_column
     global_parameter: order_amount_column
-  display_name: FreeResc Metrics
+  - param_name: free_reschedule_column
+    global_parameter: free_reschedule_column
+  display_name: FreeResc Metrics by Dimensions
   stage_name: Generate_report
 - action_reference: Join Daily transaction & FreeResc Metrics
   parameters:
   - param_name: table1
-    source_action: Daily total transaction-0
+    source_action: Daily total transaction by Dimension-0
   - param_name: table2
-    source_action: FreeResc Metrics-1
+    source_action: FreeResc Metrics by Dimensions-1
   - param_name: key_column
     default_value: date_time
   display_name: Join Daily transaction & FreeResc Metrics
@@ -46,20 +50,15 @@ flow_actions:
     source_action: Join Daily transaction & FreeResc Metrics-2
   display_name: Adoption rate metric
   stage_name: Generate_report
-display_name: Adoption Rate Report
+display_name: Adoption Rate Report By Dimension
 parameters:
-- param_name: booking_details_id
+- param_name: dimension_column
   df_param_type: column
-  display_name: booking_details_id
-  user_input_required: true
-- param_name: reschedule_policy_id
-  df_param_type: column
-  display_name: reschedule_policy_id
+  display_name: dimension_column
   user_input_required: true
 - param_name: booking_details_table
   df_param_type: table
   display_name: booking_details_table
-  default_value: fdwh_flight_booking_snapshot
   user_input_required: true
 - param_name: timestamp_column
   df_param_type: column
@@ -69,6 +68,18 @@ parameters:
   df_param_type: column
   display_name: passanger_id_column
   user_input_required: true
+- param_name: reschedule_policy_table
+  df_param_type: table
+  display_name: reschedule_policy_table
+  user_input_required: true
+- param_name: booking_details_id
+  df_param_type: column
+  display_name: booking_details_id
+  user_input_required: true
+- param_name: reschedule_policy_id
+  df_param_type: column
+  display_name: reschedule_policy_id
+  user_input_required: true
 - param_name: order_amount_column
   df_param_type: column
   display_name: order_amount_column
@@ -76,11 +87,6 @@ parameters:
 - param_name: premium_amount_column
   df_param_type: column
   display_name: premium_amount_column
-  user_input_required: true
-- param_name: reschedule_policy_table
-  df_param_type: table
-  display_name: reschedule_policy_table
-  default_value: fdwh_freeReschedulePolicy_snapshot
   user_input_required: true
 - param_name: free_reschedule_column
   df_param_type: column

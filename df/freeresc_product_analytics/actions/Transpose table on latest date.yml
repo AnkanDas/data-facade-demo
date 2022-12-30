@@ -1,6 +1,7 @@
 unique_name: Transpose table on latest date
 action_reference: Transpose table on latest date
 display_name: Transpose table on latest date
+description: Transpose table on latest date
 state: draft
 parameters:
 - param_name: timestamp_column

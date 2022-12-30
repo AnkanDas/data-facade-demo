@@ -1,0 +1,18 @@
+unique_name: Daily total transaction by Dimension
+action_reference: Daily total transaction by Dimension
+display_name: Daily total transaction by Dimension
+state: draft
+parameters:
+- param_name: booking_details_table
+  df_param_type: table
+  display_name: booking_details_table
+  user_input_required: true
+- param_name: timestamp_column
+  df_param_type: column
+  display_name: timestamp_column
+  user_input_required: true
+- param_name: dimension_column
+  df_param_type: column
+  display_name: dimension_column
+  user_input_required: true
+source_type: df_sql
