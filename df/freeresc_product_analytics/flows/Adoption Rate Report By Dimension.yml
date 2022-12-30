@@ -34,20 +34,22 @@ flow_actions:
     global_parameter: free_reschedule_column
   display_name: FreeResc Metrics by Dimensions
   stage_name: Generate_report
-- action_reference: Join Daily transaction & FreeResc Metrics
+- action_reference: Join by two key columns
   parameters:
+  - param_name: key_column2
+    global_parameter: dimension_column
   - param_name: table1
     source_action: Daily total transaction by Dimension-0
   - param_name: table2
     source_action: FreeResc Metrics by Dimensions-1
-  - param_name: key_column
+  - param_name: key_column1
     default_value: date_time
-  display_name: Join Daily transaction & FreeResc Metrics
+  display_name: Join by two key columns
   stage_name: Generate_report
 - action_reference: Adoption rate metric
   parameters:
   - param_name: table
-    source_action: Join Daily transaction & FreeResc Metrics-2
+    source_action: Join by two key columns-2
   display_name: Adoption rate metric
   stage_name: Generate_report
 display_name: Adoption Rate Report By Dimension
@@ -68,9 +70,17 @@ parameters:
   df_param_type: column
   display_name: passanger_id_column
   user_input_required: true
+- param_name: order_amount_column
+  df_param_type: column
+  display_name: order_amount_column
+  user_input_required: true
 - param_name: reschedule_policy_table
   df_param_type: table
   display_name: reschedule_policy_table
+  user_input_required: true
+- param_name: premium_amount_column
+  df_param_type: column
+  display_name: premium_amount_column
   user_input_required: true
 - param_name: booking_details_id
   df_param_type: column
@@ -79,14 +89,6 @@ parameters:
 - param_name: reschedule_policy_id
   df_param_type: column
   display_name: reschedule_policy_id
-  user_input_required: true
-- param_name: order_amount_column
-  df_param_type: column
-  display_name: order_amount_column
-  user_input_required: true
-- param_name: premium_amount_column
-  df_param_type: column
-  display_name: premium_amount_column
   user_input_required: true
 - param_name: free_reschedule_column
   df_param_type: column
