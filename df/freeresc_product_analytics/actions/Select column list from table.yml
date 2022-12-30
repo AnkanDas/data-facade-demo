@@ -1,0 +1,18 @@
+unique_name: Select column list from table
+action_reference: Select column list from table
+display_name: Select column list from table
+state: draft
+parameters:
+- param_name: table
+  df_param_type: table
+  display_name: table
+  user_input_required: true
+- param_name: dimension_column
+  df_param_type: column
+  display_name: dimension_column
+  user_input_required: true
+- param_name: column_list
+  df_param_type: column_names_list
+  display_name: column_list
+  user_input_required: true
+source_type: df_sql

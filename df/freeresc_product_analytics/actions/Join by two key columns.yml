@@ -1,0 +1,22 @@
+unique_name: Join by two key columns
+action_reference: Join by two key columns
+display_name: Join by two key columns
+state: draft
+parameters:
+- param_name: table1
+  df_param_type: table
+  display_name: table1
+  user_input_required: true
+- param_name: key_column1
+  df_param_type: column
+  display_name: key_column1
+  user_input_required: true
+- param_name: key_column2
+  df_param_type: column
+  display_name: key_column2
+  user_input_required: true
+- param_name: table2
+  df_param_type: table
+  display_name: table2
+  user_input_required: true
+source_type: df_sql
