@@ -2,20 +2,20 @@ unique_name: Daily calculation attachment rate (Application)
 flow_actions:
 - action_reference: Df_join_operation
   parameters:
-  - param_name: join_type
-    default_value: left
-  - param_name: df2
-    global_parameter: Enter flights data table
   - param_name: df2_new_col_add
     global_parameter: Enter the origin column of flight data
   - param_name: df1_key
     global_parameter: Enter the booking_id for product data
-  - param_name: product_param
-    global_parameter: Product table parameter
-  - param_name: df2_key
-    global_parameter: Enter the booking_id for flight data
   - param_name: df1
     global_parameter: Enter products data table
+  - param_name: df2_key
+    global_parameter: Enter the booking_id for flight data
+  - param_name: join_type
+    default_value: left
+  - param_name: df2
+    global_parameter: Enter flights data table
+  - param_name: product_param
+    global_parameter: Product table parameter
   display_name: Df_join_operation
   stage_name: Stage 1
 - action_reference: Get_journey_type
@@ -30,14 +30,14 @@ flow_actions:
   stage_name: Stage 1
 - action_reference: Group_for_amount
   parameters:
-  - param_name: premium_amount
-    global_parameter: premium_amount
   - param_name: data
     source_action: Get_journey_type-1
-  - param_name: trip_id
-    global_parameter: Enter the booking_id for product data
   - param_name: journey_info_column
     default_value: journeyType
+  - param_name: trip_id
+    global_parameter: Enter the booking_id for product data
+  - param_name: premium_amount
+    global_parameter: premium_amount
   - param_name: claim_amount
     global_parameter: claim_amount
   display_name: Group_for_amount
@@ -66,11 +66,16 @@ flow_actions:
   stage_name: Stage 2
 display_name: Daily calculation attachment rate (Application)
 parameters:
-- param_name: Enter products data table
-  df_param_type: table
-  display_name: Enter products data table
-  description: Enter products data table
-  default_value: flights_reschedule_data
+- param_name: Enter grouping columns
+  df_param_type: column_names_list
+  display_name: Enter grouping columns
+  description: Enter grouping columns
+  user_input_required: true
+- param_name: Enter the origin column of flight data
+  df_param_type: column
+  display_name: Enter the origin column of flight data
+  description: Enter the origin column of flight data
+  default_value: origin
   user_input_required: true
 - param_name: claim_amount
   df_param_type: column
@@ -84,17 +89,11 @@ parameters:
   description: Enter the booking_id for product data
   default_value: tripId
   user_input_required: true
-- param_name: Enter the booking_id for flight data
-  df_param_type: column
-  display_name: Enter the booking_id for flight data
-  description: Enter the booking_id for flight data
-  default_value: bookingId
-  user_input_required: true
 - param_name: Enter flights data table
   df_param_type: table
   display_name: Enter flights data table
   description: Enter flights data table
-  default_value: flights_data
+  default_value: fdwh_flight_booking_snapshot
   user_input_required: true
 - param_name: premium_amount
   df_param_type: column
@@ -102,21 +101,23 @@ parameters:
   description: premium_amount
   default_value: premiumAmount
   user_input_required: true
-- param_name: Enter grouping columns
-  df_param_type: column_names_list
-  display_name: Enter grouping columns
-  user_input_required: true
-- param_name: Enter the origin column of flight data
+- param_name: Enter the booking_id for flight data
   df_param_type: column
-  display_name: Enter the origin column of flight data
-  description: Enter the origin column of flight data
-  default_value: origin
+  display_name: Enter the booking_id for flight data
+  description: Enter the booking_id for flight data
+  default_value: bookingId
+  user_input_required: true
+- param_name: Enter products data table
+  df_param_type: table
+  display_name: Enter products data table
+  description: Enter products data table
+  default_value: fdwh_freeReschedulePolicy_snapshot
   user_input_required: true
 - param_name: Enter flights data table (SQL)
   df_param_type: table
   display_name: Enter flights data table (SQL)
   description: Enter flights data table (SQL)
-  default_value: flights_data
+  default_value: fdwh_flight_booking_snapshot
   user_input_required: true
 - param_name: Product table parameter
   df_param_type: string

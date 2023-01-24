@@ -255,30 +255,37 @@ parameters:
 - param_name: Enter flights booking details table
   df_param_type: table
   display_name: Enter flights booking details table
+  description: Enter flights booking details table
   user_input_required: true
 - param_name: Enter time stamp array column named onward_segments_scheduled_departures_array
   df_param_type: column
   display_name: Enter time stamp array column named onward_segments_scheduled_departures_array
+  description: Enter time stamp array column named onward_segments_scheduled_departures_array
   user_input_required: true
 - param_name: datetime_column
   df_param_type: column
   display_name: datetime_column
+  description: datetime_column
   user_input_required: true
 - param_name: column_to_be_renamed
   df_param_type: column
   display_name: column_to_be_renamed
+  description: column_to_be_renamed
   user_input_required: true
 - param_name: Enter the time stamp column named updated_at
   df_param_type: column
   display_name: Enter the time stamp column named updated_at
+  description: Enter the time stamp column named updated_at
   user_input_required: true
 - param_name: table_name
   df_param_type: table
   display_name: table_name
+  description: table_name
   user_input_required: true
 - param_name: df
   df_param_type: table
   display_name: df
+  description: df
   user_input_required: true
 - param_name: Enter new date time column name for created column
   df_param_type: column
@@ -289,10 +296,12 @@ parameters:
 - param_name: Enter new date time column name for created_at column
   df_param_type: column
   display_name: Enter new date time column name for created_at column
+  description: Enter new date time column name for created_at column
   user_input_required: true
 - param_name: Enter new date time column name for updated_at column
   df_param_type: column
   display_name: Enter new date time column name for updated_at column
+  description: Enter new date time column name for updated_at column
   user_input_required: true
 - param_name: Enter internal cancellation details table
   df_param_type: table
@@ -303,10 +312,12 @@ parameters:
 - param_name: Enter time stamp column named created_at
   df_param_type: column
   display_name: Enter time stamp column named created_at
+  description: Enter time stamp column named created_at
   user_input_required: true
 - param_name: timestamp_column
   df_param_type: column
   display_name: timestamp_column
+  description: timestamp_column
   user_input_required: true
 - param_name: Enter refund details table
   df_param_type: table
@@ -317,17 +328,21 @@ parameters:
 - param_name: column_to_remove_name
   df_param_type: column
   display_name: column_to_remove_name
+  description: column_to_remove_name
   user_input_required: true
 - param_name: Enter date time column name for new return_departure
   df_param_type: column
   display_name: Enter date time column name for new return_departure
+  description: Enter date time column name for new return_departure
   user_input_required: true
 - param_name: Enter date time column name for new onward_departure
   df_param_type: column
   display_name: Enter date time column name for new onward_departure
+  description: Enter date time column name for new onward_departure
   user_input_required: true
 - param_name: Enter time stamp array column named return_segments_scheduled_departures_array
   df_param_type: column
   display_name: Enter time stamp array column named return_segments_scheduled_departures_array
+  description: Enter time stamp array column named return_segments_scheduled_departures_array
   user_input_required: true
 description: ''
